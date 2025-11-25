@@ -11,7 +11,7 @@ __pycache__/
 
 # Data
 data/census
-data/geo
+data/geo/*_ct
 
 # Jupyter / Analysis
 .ipynb_checkpoints/
