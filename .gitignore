@@ -10,7 +10,8 @@ vite.config.ts.timestamp-*
 __pycache__/
 
 # Data
-data/
+data/census
+data/geo
 
 # Jupyter / Analysis
 .ipynb_checkpoints/
