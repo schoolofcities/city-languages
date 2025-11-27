@@ -5,17 +5,52 @@
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import * as Plot from "@observablehq/plot";
+	import { onMount } from "svelte";
 	
 	// Load the JSON data files
-	import data1971 from '../../data/num_speakers_centroid_1971.json';
-	import data1996 from '../../data/num_speakers_centroid_1996.json';
-	import data2021 from '../../data/num_speakers_centroid_2021.json';
+	import data1971 from '$data/num_speakers_centroid_1971.json';
+	import data1996 from '$data/num_speakers_centroid_1996.json';
+	import data2021 from '$data/num_speakers_centroid_2021.json';
+	import torontoBoundaries from '$data/TMUN_CSD_OldTO.geo.json';
 	
 	// Make data available for reactive statements
 	let datasets = $state({
 		1971: data1971,
 		1996: data1996,
 		2021: data2021
+	});
+
+	let plotContainer;
+
+	onMount(() => {
+		if (plotContainer && datasets[2021]) {
+			const plot = Plot.plot({
+				width: 800,
+				height: 600,
+				margin: 40,
+				color: {
+					legend: true,
+					scheme: "viridis"
+				},
+				marks: [
+					Plot.contour(datasets[2021], {
+						x: "x",
+						y: "y", 
+						fill: "num_ita",
+						stroke: "white",
+						strokeWidth: 0.5,
+                        blur: 4,
+					}),
+					Plot.geo(torontoBoundaries, {
+						stroke: "black",
+						strokeWidth: 1.0,
+						fill: "none"
+					})
+				]
+			});
+			
+			plotContainer.appendChild(plot);
+		}
 	});
 </script>
 
@@ -60,8 +95,11 @@
 			Nunc vel massa turpis. Vivamus id odio ut nulla dignissim molestie. 
 		</p>
 
+        
 	</div>
-
+    
+    <div bind:this={plotContainer} class="plot-container"></div>
+    
     <div class="text">
         <div class="details">
 
@@ -80,11 +118,15 @@
 
 		</div>
     </div>
-    
+
 	<Footer />
 </main>
 
 
 <style>
-    
+	.plot-container {
+		margin: 2rem 0;
+		display: flex;
+		justify-content: center;
+	}
 </style>
