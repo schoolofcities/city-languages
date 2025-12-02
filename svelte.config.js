@@ -14,7 +14,7 @@ const config = {
 		    assets: "docs"
 		}),
 		paths: {
-		    base: dev ? "" : "/design-components",
+		    base: dev ? "" : "/city-languages",
 		}
 	}
 };

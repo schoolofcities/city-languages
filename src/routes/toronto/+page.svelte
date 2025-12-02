@@ -55,13 +55,13 @@
 <main>
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
-	<ImageSingle
+	<!-- <ImageSingle
 		imageURL="https://jamaps.github.io/photos/picimgs/taipei1_2025.jpg"
 		caption="Taipei skyline."
 		source="Jeff Allen."
 		altText=""
 		maxWidth="1080px"
-	/>
+	/> -->
 
 	<TitleStandard
 		title="Language Distribution in Toronto"
