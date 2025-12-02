@@ -1,11 +1,13 @@
 <script>
+	import * as Plot from "@observablehq/plot";
+	import { onMount } from "svelte";
+	import { ticks } from "d3-array";
+
 	import Logo from '$lib/header-footer/LogoTop.svelte';
 	import TitleStandard from '$lib/header-footer/TitleStandard.svelte';
 	import ImageSingle from '$lib/images-videos/ImageSingle.svelte';
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
-	import * as Plot from "@observablehq/plot";
-	import { onMount } from "svelte";
 
 	// Load the JSON data files
 	import data1971 from '$data/num_speakers_centroid_1971.json';
@@ -46,6 +48,34 @@
 		num_tam: "Tamil",
 		num_ben: "Bengali",
 		num_guj: "Gujarati"
+	};
+
+	// Language thresholds dictionary
+	const LANGUAGE_THRESHOLDS = {
+		num_eng: ticks(0, 7000, 12),
+		num_not_eng: ticks(0, 7000, 12),
+		num_fra: ticks(0, 350, 12),
+		num_ara: ticks(0, 500, 12),
+		num_fas: ticks(0, 700, 12),
+		num_yid: [0, 21.875, 43.75, 87.5, 131.25, 175, 218.75, 262.5, 306.25, 350],
+		num_heb: ticks(0, 175, 12),
+		num_pol: ticks(0, 600, 12),
+		num_rus: [0, 30, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
+		num_ukr: ticks(0, 500, 12),
+		num_hun: ticks(0, 200, 12),
+		num_gre: ticks(0, 900, 12),
+		num_ita: ticks(0, 2000, 12),
+		num_por: ticks(0, 2000, 12),
+		num_spa: ticks(0, 400, 12),
+		num_kor: ticks(0, 600, 12),
+		num_jpn: ticks(0, 80, 12),
+		num_chi: ticks(0, 2000, 12), //[0,200,400,600,800,1000,1200,1400,1600,1800,2000],
+		num_vie: ticks(0, 375, 12),
+		num_tgl: ticks(0, 450, 12),
+		num_pan: ticks(0, 1400, 12),
+		num_tam: ticks(0, 500, 12),
+		num_ben: ticks(0, 500, 12),
+		num_guj: ticks(0, 300, 12),
 	};
 
 	// Language selection state
@@ -92,7 +122,8 @@
 							fill: language,
 							stroke: "white",
 							strokeWidth: 0,
-							blur: 5
+							blur: 5,
+							thresholds: LANGUAGE_THRESHOLDS[selectedLanguage],
 					  })
 					: null,
 
