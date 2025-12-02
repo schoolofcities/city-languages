@@ -95,6 +95,9 @@
 		2021: createPlotConfig(datasets[2021], selectedLanguage)
 	});
 
+	// BuPu color scheme
+	const BUPU_COLORS = ['#e0ecf4', '#bfd3e6', '#9ebcda', '#8c96c6', '#8c6bb1', '#88419d', '#810f7c', '#4d004b'];
+
 	// Helper: verify language exists in dataset keys
 	function languageExists(data, lang) {
 		if (!data || data.length === 0) return false;
@@ -110,11 +113,10 @@
 			margin: 0,
 			axis: null,
 			color: {
-				legend: true,
+				legend: false,
 				scheme: "BuPu"
 			},
 			marks: [
-				// Only render contour if language is present
 				valid
 					? Plot.contour(data, {
 							x: "x",
@@ -205,20 +207,77 @@
 		<h2>Language Distribution Over Time</h2>
 		<p>Current language: {LANGUAGE_OPTIONS[selectedLanguage]}</p>
 
-		<div>
-			<h3>1971</h3>
-			<div bind:this={mapContainers[1971]} class="plot-container"></div>
-		</div>
+			<div class="map-wrapper">
+				<h3>1971</h3>
+				<div class="plot-container">
+					<div bind:this={mapContainers[1971]} class="plot"></div>
+					<div class="legend">
+						<svg class="color-bar" width="200" height="10" viewBox="0 0 200 10">
+							{#each BUPU_COLORS as color, i}
+								<rect 
+									x={i * (200 / BUPU_COLORS.length)} 
+									y="0" 
+									width={200 / BUPU_COLORS.length} 
+									height="10" 
+									fill={color}
+								/>
+							{/each}
+						</svg>
+						<div class="legend-labels">
+							<span>Fewer speakers</span>
+							<span>More speakers</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div>
-			<h3>1996</h3>
-			<div bind:this={mapContainers[1996]} class="plot-container"></div>
-		</div>
+			<div class="map-wrapper">
+				<h3>1996</h3>
+				<div class="plot-container">
+					<div bind:this={mapContainers[1996]} class="plot"></div>
+					<div class="legend">
+						<svg class="color-bar" width="200" height="10" viewBox="0 0 200 10">
+							{#each BUPU_COLORS as color, i}
+								<rect 
+									x={i * (200 / BUPU_COLORS.length)} 
+									y="0" 
+									width={200 / BUPU_COLORS.length} 
+									height="10" 
+									fill={color}
+								/>
+							{/each}
+						</svg>
+						<div class="legend-labels">
+							<span>Fewer speakers</span>
+							<span>More speakers</span>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div>
-			<h3>2021</h3>
-			<div bind:this={mapContainers[2021]} class="plot-container"></div>
-		</div>
+			<div class="map-wrapper">
+				<h3>2021</h3>
+				<div class="plot-container">
+					<div bind:this={mapContainers[2021]} class="plot"></div>
+					<div class="legend">
+						<svg class="color-bar" width="200" height="10" viewBox="0 0 200 10">
+							{#each BUPU_COLORS as color, i}
+								<rect 
+									x={i * (200 / BUPU_COLORS.length)} 
+									y="0" 
+									width={200 / BUPU_COLORS.length} 
+									height="10" 
+									fill={color}
+								/>
+							{/each}
+						</svg>
+						<div class="legend-labels">
+							<span>Fewer speakers</span>
+							<span>More speakers</span>
+						</div>
+					</div>
+				</div>
+			</div>
 	</div>
 
 	<div class="text">
@@ -248,14 +307,54 @@
 		border: 1px solid #ccc;
 	}
 
+	.maps-section {
+		margin: 3rem 0;
+		text-align: center;
+	}
+
+	.map-wrapper {
+		margin: 2rem 0;
+	}
+
 	.plot-container {
+		position: relative;
+		display: inline-block;
 		margin: 1rem 0;
+	}
+
+	.plot {
 		display: flex;
 		justify-content: center;
 	}
 
-	.maps-section {
-		margin: 3rem 0;
-		text-align: center;
+	.legend {
+		position: absolute;
+		top: 16px;
+		left: 16px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		z-index: 200;
+	}
+
+	.color-bar {
+		display: block;
+	}
+
+	.legend-labels {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.75rem;
+		font-weight: normal;
+		color: #000;
+		width: 200px;
+	}
+
+	/* Make legend responsive for mobile */
+	@media (max-width: 640px) {
+		.legend {
+			transform: scale(0.8);
+			transform-origin: top left;
+		}
 	}
 </style>
