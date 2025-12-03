@@ -6,6 +6,7 @@
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import ScrollyMaps from "$lib/scrolly/ScrollyMaps.svelte";
 	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, BUPU_COLORS } from "$lib/constants.js";
+	import { getSectionsForLanguage } from "$lib/sectionsConfig.js";
   
 	// Data imports
 	import data1971 from '$data/num_speakers_centroid_1971.json';
@@ -20,36 +21,14 @@
 		2021: data2021
 	};
   
-	// language controls
+	// Language controls
 	let selectedLanguage = "num_chi";
   
-	// Reactive sections that update with language selection
-	$: sections = [
-		{
-			type: "map",
-			year: 1971,
-			text: `<p>1971 — ${LANGUAGE_OPTIONS[selectedLanguage]} speakers</p>
-				   <p>Early 1970s ${LANGUAGE_OPTIONS[selectedLanguage]}-speaking population in Toronto.</p>`,
-			language: selectedLanguage,
-			thresholds: LANGUAGE_THRESHOLDS[selectedLanguage]
-		},
-		{
-			type: "map",
-			year: 1996,
-			text: `<p>1996 — Growth and dispersion</p>
-				   <p>By 1996 the ${LANGUAGE_OPTIONS[selectedLanguage]}-speaking population expanded outwards.</p>`,
-			language: selectedLanguage,
-			thresholds: LANGUAGE_THRESHOLDS[selectedLanguage]
-		},
-		{
-			type: "map",
-			year: 2021,
-			text: `<p>2021 — Modern distribution</p>
-				   <p>2021 shows the current distribution of ${LANGUAGE_OPTIONS[selectedLanguage]} speakers.</p>`,
-			language: selectedLanguage,
-			thresholds: LANGUAGE_THRESHOLDS[selectedLanguage]
-		}
-	];
+	// Get sections for the selected language
+	$: sections = getSectionsForLanguage(selectedLanguage, LANGUAGE_OPTIONS[selectedLanguage]);
+	
+	// Get thresholds for the selected language
+	$: thresholds = LANGUAGE_THRESHOLDS[selectedLanguage];
 </script>
 
 <main>
@@ -94,11 +73,12 @@
 		<ScrollyMaps
 			{sections}
 			{datasets}
+			{thresholds}
+			language={selectedLanguage}
 			boundaries={torontoBoundaries}
 			width={900}
 			height={600}
 			colors={BUPU_COLORS}
-			defaultLanguage={selectedLanguage}
 		/>
 	{/key}
 

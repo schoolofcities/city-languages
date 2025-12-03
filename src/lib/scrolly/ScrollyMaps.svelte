@@ -7,7 +7,8 @@
 		sections = [], 
 		datasets = {}, 
 		boundaries = null, 
-		defaultLanguage = "num_chi", 
+		language = "num_chi", 
+		thresholds = null, 
 		width = 800, 
 		height = 600, 
 		colors = null 
@@ -78,14 +79,14 @@
 <div class="scrolly-container" bind:this={scrollContainer}>
 	<!-- Sticky map container -->
 	<div class="map-sticky-wrapper">
-		{#key `${currentSectionIndex}-${activeSection?.language}`}
+		{#key `${currentSectionIndex}-${language}`}
 			<div class="map-viewport" style="width:{width}px; height:{height}px;">
 				{#if activeSection?.type === "map"}
 					<div in:fade={{ duration: 400, delay: 100 }} out:fade={{ duration: 400 }}>
 						<ContourMap
 							data={activeMapData}
-							language={activeSection.language || defaultLanguage}
-							thresholds={activeSection.thresholds}
+							{language}
+							{thresholds}
 							{boundaries}
 							{width}
 							{height}
