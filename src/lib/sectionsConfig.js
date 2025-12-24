@@ -100,12 +100,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_fas: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Farsi speakers</p>
-				<p>Early Farsi-speaking presence in Toronto.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Community growth</p>
 				<p>Expansion of Farsi-speaking communities.</p>`
@@ -142,12 +136,6 @@ export const SECTIONS_BY_LANGUAGE = {
 
 
 	num_heb: [
-		{
-			type: "map",
-			year: 1971,
-			text: `<p>1971 — Hebrew speakers</p>
-				<p>Hebrew-speaking population in the early 1970s.</p>`
-		},
 		{
 			type: "map",
 			year: 1996,
@@ -342,12 +330,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_kor: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Korean speakers</p>
-				<p>Early Korean-speaking presence in Toronto.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Community growth</p>
 				<p>Expansion of Korean-speaking communities.</p>`
@@ -408,12 +390,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_vie: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Vietnamese speakers</p>
-				<p>Early Vietnamese-speaking communities in Toronto.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Community formation</p>
 				<p>Growth of Vietnamese-speaking populations.</p>`
@@ -428,12 +404,6 @@ export const SECTIONS_BY_LANGUAGE = {
 
 
 	num_tgl: [
-		{
-			type: "map",
-			year: 1971,
-			text: `<p>1971 — Tagalog speakers</p>
-				<p>Early Tagalog-speaking presence in Toronto.</p>`
-		},
 		{
 			type: "map",
 			year: 1996,
@@ -452,12 +422,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_pan: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Punjabi speakers</p>
-				<p>Early Punjabi-speaking community in Toronto.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Rapid growth</p>
 				<p>The Punjabi-speaking population grew substantially.</p>`
@@ -472,12 +436,6 @@ export const SECTIONS_BY_LANGUAGE = {
 
 
 	num_tam: [
-		{
-			type: "map",
-			year: 1971,
-			text: `<p>1971 — Tamil speakers</p>
-				<p>Early Tamil-speaking community.</p>`
-		},
 		{
 			type: "map",
 			year: 1996,
@@ -496,12 +454,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_ben: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Bengali speakers</p>
-				<p>Early Bengali-speaking presence in Toronto.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Community growth</p>
 				<p>Expansion of Bengali-speaking neighbourhoods.</p>`
@@ -518,12 +470,6 @@ export const SECTIONS_BY_LANGUAGE = {
 	num_guj: [
 		{
 			type: "map",
-			year: 1971,
-			text: `<p>1971 — Gujarati speakers</p>
-				<p>Gujarati-speaking communities emerging in the 1970s.</p>`
-		},
-		{
-			type: "map",
 			year: 1996,
 			text: `<p>1996 — Community development</p>
 				<p>Expansion of Gujarati-speaking populations.</p>`
@@ -537,3 +483,34 @@ export const SECTIONS_BY_LANGUAGE = {
 	]
 
 };
+
+/**
+ * Get sections for a given language, with fallback to a default template
+ */
+export function getSectionsForLanguage(languageKey, languageName) {
+	if (SECTIONS_BY_LANGUAGE[languageKey]) {
+		return SECTIONS_BY_LANGUAGE[languageKey];
+	}
+
+	// Fallback template for languages not yet configured
+	return [
+		{
+			type: "map",
+			year: 1971,
+			text: `<p>1971 — ${languageName} speakers</p>
+				   <p>Early 1970s ${languageName}-speaking population in Toronto.</p>`
+		},
+		{
+			type: "map",
+			year: 1996,
+			text: `<p>1996 — Growth and dispersion</p>
+				   <p>By 1996 the ${languageName}-speaking population expanded outwards.</p>`
+		},
+		{
+			type: "map",
+			year: 2021,
+			text: `<p>2021 — Modern distribution</p>
+				   <p>2021 shows the current distribution of ${languageName} speakers.</p>`
+		}
+	];
+}
