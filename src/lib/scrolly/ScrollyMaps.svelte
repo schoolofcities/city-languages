@@ -12,7 +12,8 @@
 		percentages = [],
 		width = 800, 
 		height = 600, 
-		colors = null 
+		colors = null,
+		resetTrigger = 0
 	} = $props();
 
 	// Reactive state
@@ -20,6 +21,7 @@
 	let textSections = $state([]);
 	let currentSectionIndex = $state(0);
 	let observer = $state(null);
+	let isResetting = $state(false);
 
 	// Computed values from the active section
 	let activeSection = $derived(sections[currentSectionIndex] || sections[0]);
@@ -30,9 +32,25 @@
 	);
 	let activeYear = $derived(activeSection?.year); // Extract active year
 
+	// Watch for reset trigger
+	$effect(() => {
+		if (resetTrigger > 0) {
+			isResetting = true;
+			currentSectionIndex = 0;
+			
+			// Re-enable observer after scroll completes
+			setTimeout(() => {
+				isResetting = false;
+			}, 1000);
+		}
+	});
+
 	// Initialize scroll observer when component mounts
 	$effect(() => {
 		if (!scrollContainer || sections.length === 0) return;
+
+		// Reset to first section on mount
+		currentSectionIndex = 0;
 
 		// Small delay to ensure DOM is ready
 		const initTimeout = setTimeout(() => {
@@ -45,6 +63,9 @@
 			if (textSections.length > 0) {
 				observer = new IntersectionObserver(
 					(entries) => {
+						// Skip updates during reset
+						if (isResetting) return;
+						
 						entries.forEach((entry) => {
 							if (entry.isIntersecting) {
 								const index = textSections.indexOf(entry.target);

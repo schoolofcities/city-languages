@@ -23,22 +23,33 @@
 	};
   
 	// Language controls
-	let selectedLanguage = "num_chi";
+	let selectedLanguage = $state("num_chi");
+	let languageSelectorElement = $state(null);
+	let resetTrigger = $state(0);
   
-	// Get sections for the selected language
-	$: sections = getSectionsForLanguage(selectedLanguage, LANGUAGE_OPTIONS[selectedLanguage]);
-	
-	// Get thresholds for the selected language
-	$: thresholds = LANGUAGE_THRESHOLDS[selectedLanguage];
-	
-	// Derive percentage key from selectedLanguage (e.g., "num_chi" -> "pct_chi")
-	$: percentKey = selectedLanguage.replace('num_', 'pct_');
-	
-	// Extract percentages for each year for the selected language
-	$: languagePercentages = percentageData.map(yearData => ({
-		year: yearData.year,
-		pct: yearData[percentKey]
-	}));
+	// Derived values
+	let sections = $derived(getSectionsForLanguage(selectedLanguage, LANGUAGE_OPTIONS[selectedLanguage]));
+	let thresholds = $derived(LANGUAGE_THRESHOLDS[selectedLanguage]);
+	let percentKey = $derived(selectedLanguage.replace('num_', 'pct_'));
+	let languagePercentages = $derived(
+		percentageData.map(yearData => ({
+			year: yearData.year,
+			pct: yearData[percentKey]
+		}))
+	);
+
+	function scrollToLanguageSelector() {
+		// Trigger reset
+		resetTrigger += 1;
+		
+		// Scroll to language selector
+		if (languageSelectorElement) {
+			languageSelectorElement.scrollIntoView({ 
+				behavior: 'smooth', 
+				block: 'center' 
+			 });
+		}
+	}
 </script>
 
 <main>
@@ -68,7 +79,7 @@
 		</p>
 	</div>
 
-	<div class="language-selector">
+	<div class="language-selector" bind:this={languageSelectorElement}>
 		<label for="language-select">
 			<strong>Select language:</strong>
 		</label>
@@ -90,8 +101,15 @@
 			width={900}
 			height={600}
 			colors={BUPU_COLORS}
+			resetTrigger={resetTrigger}
 		/>
 	{/key}
+
+	<div class="back-to-top">
+		<button onclick={scrollToLanguageSelector}>
+			← Select New Language
+		</button>
+	</div>
 
 	<div class="text">
 		<div class="details">
@@ -156,6 +174,31 @@
 		padding: 0.5rem;
 	}
 
+	.back-to-top {
+		max-width: 700px;
+		margin: 2rem auto;
+		text-align: center;
+		padding: 0 1.5rem;
+		position: relative;
+		z-index: 1000;
+	}
+
+	.back-to-top button {
+		padding: 1rem 2rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: white;
+		background: #0066cc;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background 0.2s ease;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		pointer-events: auto;
+		touch-action: manipulation;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+	}
+
 	@media (max-width: 768px) {
 		.language-selector {
 			/* Increase touch target and ensure it's above other elements */
@@ -171,6 +214,20 @@
 			font-size: 16px; /* Prevents zoom on iOS */
 			/* Ensure it's tappable */
 			-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+		}
+
+		.back-to-top {
+			z-index: 1001;
+			padding: 1rem 1.5rem;
+		}
+
+		.back-to-top button {
+			width: 100%;
+			max-width: 300px;
+			padding: 1.25rem 2rem;
+			font-size: 1.05rem;
+			/* Ensure it's tappable on mobile */
+			min-height: 48px;
 		}
 	}
 </style>
