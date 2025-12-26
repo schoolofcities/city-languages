@@ -13,6 +13,7 @@
 	import data1996 from '$data/num_speakers_centroid_1996.json';
 	import data2021 from '$data/num_speakers_centroid_2021.json';
 	import torontoBoundaries from '$data/TMUN_CSD_OldTO.geo.json';
+	import percentageData from '$data/total_pct_speakers_tmun.json';
   
 	// Datasets map keyed by year
 	const datasets = {
@@ -29,6 +30,15 @@
 	
 	// Get thresholds for the selected language
 	$: thresholds = LANGUAGE_THRESHOLDS[selectedLanguage];
+	
+	// Derive percentage key from selectedLanguage (e.g., "num_chi" -> "pct_chi")
+	$: percentKey = selectedLanguage.replace('num_', 'pct_');
+	
+	// Extract percentages for each year for the selected language
+	$: languagePercentages = percentageData.map(yearData => ({
+		year: yearData.year,
+		pct: yearData[percentKey]
+	}));
 </script>
 
 <main>
@@ -75,6 +85,7 @@
 			{datasets}
 			{thresholds}
 			language={selectedLanguage}
+			percentages={languagePercentages}
 			boundaries={torontoBoundaries}
 			width={900}
 			height={600}

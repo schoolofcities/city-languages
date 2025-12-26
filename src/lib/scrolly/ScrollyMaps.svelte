@@ -9,6 +9,7 @@
 		boundaries = null, 
 		language = "num_chi", 
 		thresholds = null, 
+		percentages = [],
 		width = 800, 
 		height = 600, 
 		colors = null 
@@ -27,6 +28,7 @@
 			? datasets[activeSection.year] 
 			: []
 	);
+	let activeYear = $derived(activeSection?.year); // Extract active year
 
 	// Initialize scroll observer when component mounts
 	$effect(() => {
@@ -87,6 +89,8 @@
 							data={activeMapData}
 							{language}
 							{thresholds}
+							{percentages}
+							activeYear={activeYear}
 							{boundaries}
 							{width}
 							{height}

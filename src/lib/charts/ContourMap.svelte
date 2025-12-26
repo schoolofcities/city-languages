@@ -2,11 +2,14 @@
 	import { onMount, onDestroy } from "svelte";
 	import * as Plot from "@observablehq/plot";
 	import { BUPU_COLORS } from "$lib/constants.js";
+	import YearPercentBar from "$lib/chart-addons/YearPercentBar.svelte";
 
 	export let data = [];
 	export let language = "num_chi";
 	export let thresholds = null;
 	export let boundaries = null;
+	export let percentages = [];
+	export let activeYear = null; // Year of currently displayed map
 	export let width = 800;
 	export let height = 600;
 	export let blur = 6;
@@ -109,6 +112,14 @@
 				<span>More speakers</span>
 			</div>
 		</div>
+	{/if}
+	
+	{#if percentages && percentages.length > 0}
+			<YearPercentBar 
+				data={percentages.map(p => ({ year: p.year, value: p.pct }))}
+				{activeYear}
+				title="% of first-language speakers"
+			/>
 	{/if}
 	
 	<div class="map-root" bind:this={container}></div>
