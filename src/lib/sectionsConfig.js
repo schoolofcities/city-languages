@@ -2,9 +2,9 @@
  * Sections configuration for each language.
  * Each language has an array of section objects defining the scrollytelling narrative.
  * Each section specifies:
- * - type: "map" or "image"
  * - year: which dataset to use (1971, 1996, 2021)
  * - text: HTML content for the text box
+ * - image: (optional) path to an image to display above the text
  */
 
 export const SECTIONS_BY_LANGUAGE = {
@@ -367,19 +367,22 @@ export const SECTIONS_BY_LANGUAGE = {
 
 	num_chi: [
 		{
-			type: "map",
 			year: 1971,
 			text: `<p>1971 — Chinese speakers</p>
 				<p>Early 1970s Chinese-speaking population in Toronto.</p>`
 		},
 		{
-			type: "map",
+			year: 1971,
+			image: "https://jamaps.github.io/photos/picimgs/taipei1_2025.jpg",
+			text: `<p>Historic Chinatown</p>
+				<p>The original Chinatown was a vibrant community hub.</p>`
+		},
+		{
 			year: 1996,
 			text: `<p>1996 — Growth and dispersion</p>
 				<p>By 1996 the Chinese-speaking population expanded outwards.</p>`
 		},
 		{
-			type: "map",
 			year: 2021,
 			text: `<p>2021 — Modern distribution</p>
 				<p>2021 shows the current distribution of Chinese speakers.</p>`

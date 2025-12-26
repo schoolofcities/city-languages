@@ -83,26 +83,20 @@
 	<div class="map-sticky-wrapper">
 		{#key `${currentSectionIndex}-${language}`}
 			<div class="map-viewport" style="width:{width}px; height:{height}px;">
-				{#if activeSection?.type === "map"}
-					<div in:fade={{ duration: 400, delay: 100 }} out:fade={{ duration: 400 }}>
-						<ContourMap
-							data={activeMapData}
-							{language}
-							{thresholds}
-							{percentages}
-							activeYear={activeYear}
-							{boundaries}
-							{width}
-							{height}
-							{colors}
-							showLegend={true}
-						/>
-					</div>
-				{:else if activeSection?.type === "image"}
-					<div class="image-container" in:fade={{ duration: 400, delay: 100 }} out:fade={{ duration: 400 }}>
-						<img src={activeSection.image} alt="" loading="lazy" />
-					</div>
-				{/if}
+				<div>
+					<ContourMap
+						data={activeMapData}
+						{language}
+						{thresholds}
+						{percentages}
+						activeYear={activeYear}
+						{boundaries}
+						{width}
+						{height}
+						{colors}
+						showLegend={true}
+					/>
+				</div>
 			</div>
 		{/key}
 	</div>
@@ -112,6 +106,11 @@
 		{#each sections as section, i}
 			<div class="text-section" data-index={i} bind:this={textSections[i]}>
 				<div class="text-box">
+					{#if section.image}
+						<div class="section-image">
+							<img src={section.image} alt="" loading="lazy" />
+						</div>
+					{/if}
 					{@html section.text}
 				</div>
 			</div>
@@ -147,18 +146,6 @@
 		position: relative;
 	}
 	
-	.image-container {
-		width: 100%;
-		height: 100%;
-	}
-	
-	.image-container img { 
-		width: 100%; 
-		height: 100%; 
-		object-fit: cover; 
-		display: block;
-	}
-	
 	.text-sections-wrapper {
 		position: relative;
 		z-index: 2;
@@ -191,6 +178,19 @@
 
 	.text-box :global(p) {
 		margin: 0.5rem 0;
+	}
+
+	.section-image {
+		width: 100%;
+		margin-bottom: 0.75rem;
+		border-radius: 0.25rem;
+		overflow: hidden;
+	}
+
+	.section-image img {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
 
 	@media (min-width: 640px) {
