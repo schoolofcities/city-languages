@@ -18,80 +18,85 @@
 
 	// Reactive state
 	let scrollContainer = $state(null);
-	let textSections = $state([]);
 	let currentSectionIndex = $state(0);
 	let observer = $state(null);
 	let isResetting = $state(false);
 
-	// Computed values from the active section
+	// DOM refs for IntersectionObserver (not reactive state)
+	let sectionEls = $state([]);
+
+	// Derived values
 	let activeSection = $derived(sections[currentSectionIndex] || sections[0]);
+
 	let activeMapData = $derived(
 		activeSection?.year && datasets[activeSection.year] 
 			? datasets[activeSection.year] 
 			: []
 	);
-	let activeYear = $derived(activeSection?.year); // Extract active year
+
+	let activeYear = $derived(activeSection?.year);
+
+	// Reset helper
+	function resetToFirstSection() {
+		currentSectionIndex = 0;
+	}
 
 	// Watch for reset trigger
 	$effect(() => {
 		if (resetTrigger > 0) {
 			isResetting = true;
-			currentSectionIndex = 0;
-			
-			// Re-enable observer after scroll completes
+			resetToFirstSection();
+
 			setTimeout(() => {
 				isResetting = false;
 			}, 1000);
 		}
 	});
 
-	// Initialize scroll observer when component mounts
+	// Observer options
+	const OBSERVER_OPTIONS = {
+		root: null,
+		rootMargin: "-45% 0px -45% 0px",
+		threshold: 0
+	};
+
+	// Initialize scroll observer
 	$effect(() => {
 		if (!scrollContainer || sections.length === 0) return;
 
-		// Reset to first section on mount
-		currentSectionIndex = 0;
+		resetToFirstSection();
 
-		// Small delay to ensure DOM is ready
 		const initTimeout = setTimeout(() => {
-			// Find all text section elements
-			textSections = sections.map((_, i) => 
-				scrollContainer.querySelector(`.text-section[data-index="${i}"]`)
-			).filter(Boolean);
-			
-			// Set up intersection observer if we have sections
-			if (textSections.length > 0) {
-				observer = new IntersectionObserver(
-					(entries) => {
-						// Skip updates during reset
-						if (isResetting) return;
-						
-						entries.forEach((entry) => {
-							if (entry.isIntersecting) {
-								const index = textSections.indexOf(entry.target);
-								if (index >= 0) {
-									currentSectionIndex = index;
-								}
-							}
-						});
-					},
-					{
-						root: null,
-						// Trigger when section is in middle 10% of viewport
-						rootMargin: `-45% 0px -45% 0px`,
-						threshold: 0
-					}
-				);
+			sectionEls = sections
+				.map((_, i) =>
+					scrollContainer.querySelector(
+						`.text-section[data-index="${i}"]`
+					)
+				)
+				.filter(Boolean);
 
-				// Observe all text sections
-				textSections.forEach(section => observer.observe(section));
+			if (sectionEls.length > 0) {
+				observer = new IntersectionObserver((entries) => {
+					if (isResetting) return;
+
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							const index = sectionEls.indexOf(entry.target);
+							if (index >= 0) {
+								currentSectionIndex = index;
+							}
+						}
+					});
+				}, OBSERVER_OPTIONS);
+
+				sectionEls.forEach(section => observer.observe(section));
 			}
 		}, 100);
 
-		// Cleanup on unmount
 		return () => {
 			clearTimeout(initTimeout);
 			if (observer) {
+				sectionEls.forEach(section => observer.unobserve(section));
 				observer.disconnect();
 				observer = null;
 			}
@@ -125,7 +130,11 @@
 	<!-- Scrolling text sections -->
 	<div class="text-sections-wrapper">
 		{#each sections as section, i}
-			<div class="text-section" data-index={i} bind:this={textSections[i]}>
+			<div
+				class="text-section"
+				data-index={i}
+				bind:this={sectionEls[i]}
+			>
 				<div class="text-box">
 					{#if section.image}
 						<div class="section-image">
@@ -136,7 +145,7 @@
 				</div>
 			</div>
 		{/each}
-		<!-- Extra space to scroll last section to top -->
+
 		<div class="bottom-spacer"></div>
 	</div>
 </div>
@@ -147,7 +156,7 @@
 		display: block;
 		margin: 2rem 0;
 	}
-	
+		
 	.map-sticky-wrapper {
 		position: sticky;
 		top: 0;
@@ -158,7 +167,7 @@
 		z-index: 1;
 		background: white;
 	}
-	
+		
 	.map-viewport { 
 		display: flex; 
 		align-items: center; 
@@ -166,13 +175,13 @@
 		max-width: 100%;
 		position: relative;
 	}
-	
+		
 	.text-sections-wrapper {
 		position: relative;
 		z-index: 2;
 		pointer-events: none;
 	}
-	
+		
 	.text-section {
 		min-height: 100vh;
 		display: flex;
@@ -185,7 +194,7 @@
 		height: 100vh;
 		pointer-events: none;
 	}
-	
+		
 	.text-box {
 		width: 100%;
 		max-width: 21.4375rem;
