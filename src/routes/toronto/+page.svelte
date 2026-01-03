@@ -64,18 +64,30 @@
 	/> -->
 
 	<TitleStandard
-		title="Language Distribution in Toronto"
+		title="Language Patterns in the Toronto Region"
 		subtitle="Exploring how language communities have evolved over five decades"
 	/>
 
 	<div class="text">
 		<AuthorDate
-			authors="<a href='' target='_blank'>Author Name</a> & <a href='' target='_blank'>Author Name</a>"
-			date="July 2025"
+			authors="<a href='https://www.linkedin.com/in/aniket-k-8a8b9921b/' target='_blank'>Aniket Kali</a>, <a href='https://jamaps.github.io/' target='_blank'>Jeff Allen</a>"
+			date="January 2026"
 		/>
 
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat lacus eu dolor dapibus sodales. Aenean venenatis metus id eleifend tincidunt.
+			In today's Toronto and its surrounding urban region, it is more common for someone's mother tongue to be a language other than English. A long time hub for immigration to Canada, the region is one of the world's most multicultural. And, as a result, has long been home to dozens of languages from around the globe.
+		</p>
+
+		<p>
+			Whether Italian or Punjabi, Yiddish or Tagalog, many languages have arrived, grown, and sometimes declined over the last several decades. Some, such as the Chinese languages, have expanded into the suburbs as immigration and settlement patterns shifted. Others, like Greek, are slowly fading away due to a lack of new immigrants and an aging community.
+		</p>
+
+		<p>
+			Each of these languages belongs to a community, and each community has its own story of arrival, settlement, and cultural life in the region.
+		</p>
+
+		<p>
+			Below, we map first-language speakers for many different languages across the region in 1971, 1996, and 2021. For each language, we share a brief account of how these communities formed and changed over time, alongside selected images from different periods. Choose a language below and scroll to explore its story.
 		</p>
 	</div>
 
@@ -113,12 +125,38 @@
 
 	<div class="text">
 		<div class="details">
+			<h2>Acknowledgements</h2>
+			<p>
+				A special thanks to the many people who contributed context, insight, and background on different linguistic communities:
+			</p>
+
+			<p>
+				We also thank <a href='https://www.naelshiab.com/' target="_blank">Nael Shiab</a> for his clear and intuitive methods section in his project on <a href='https://newsinteractives.cbc.ca/features/2025/climate-matches/' target="_blank">rising temperatures in Canada</a>, which provided inspiration for both the methodological approach and visual design of this project. 
+			</p>
+
 			<h2>Data & Methodology</h2>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat lacus eu dolor dapibus sodales.
+				Language data were obtained from the Canadian census via UNI-CEN. After reviewing availability across multiple decades, we selected a subset of census years (1971, 1996, and 2021) and languages for which data were consistently available and represented a substantial number of speakers. Due to irregularities and gaps in historical census reporting, additional languages and years could not be included. We chose to use “First Language” rather than “Knowledge of Language”, as the latter is inconsistently reported in earlier census years. A full list of census language codes used in this project is <a href='https://github.com/schoolofcities/city-languages/blob/main/analysis/constants.py' target="_blank">available here</a>.
 			</p>
+
 			<p>
-				Cras tincidunt nisi non tempus suscipit. Nullam metus erat, ultrices vitae mauris commodo, placerat sollicitudin sem.
+				It is important to note that "First Language" does not fully capture multilingual households or everyday language use, particularly in later generations. It's only in more recent censuses that respondents may choose multiple first languages, besides recording other linguistic information.
+			</p>
+
+			<p>
+				Rather than mapping raw census geographies, we used population-weighted aerial interpolation to generate a uniform grid of 1 km squares across the Toronto region. This approach allowed us to create smooth contour maps using Observable's Plot library.
+			</p>
+
+			<p>
+				Geographic coverage was limited to Toronto and select surrounding municipalities in order to balance regional context with population density. The final set of municipalities included Toronto, Mississauga, Brampton, Vaughan, Richmond Hill, Markham, Pickering, and Ajax.
+			</p>
+
+			<p>
+				We limited our geography to Toronto and major surrounding municipalities to balance regional coverage with population and importance. Our final list of municipalities were: Toronto, Mississauga, Brampton, Vaughan, Richmond Hill, Markham, Pickering, and Ajax.
+			</p>
+
+			<p>
+				All <a href='https://github.com/schoolofcities/city-languages/tree/main' target="_blank">code</a> and <a href='https://github.com/schoolofcities/city-languages/tree/main/data/language' target="_blank">processed data</a> used in this project are publicly available in the accompanying GitHub repository.
 			</p>
 		</div>
 	</div>
