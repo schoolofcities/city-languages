@@ -12,7 +12,7 @@
 	export let thresholds = null;
 	export let percentages = [];
 	export let activeYear = null; // Year of currently displayed map
-	export let width = 800;
+	export let width = 1080;
 	export let height = 600;
 	export let blur = 6;
 	export let colors = BUPU_COLORS;

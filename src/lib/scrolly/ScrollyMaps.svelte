@@ -9,7 +9,7 @@
 		language = "num_chi", 
 		thresholds = null, 
 		percentages = [],
-		width = 800, 
+		width = 1080, 
 		height = 600, 
 		colors = null,
 		resetTrigger = 0

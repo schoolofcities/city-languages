@@ -128,8 +128,8 @@
 			{thresholds}
 			language={selectedLanguage}
 			percentages={languagePercentages}
-			width={900}
-			height={600}
+			width={1080}
+			height={750}
 			colors={BUPU_COLORS}
 			resetTrigger={resetTrigger}
 		/>
