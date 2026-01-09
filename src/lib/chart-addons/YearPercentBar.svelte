@@ -7,8 +7,14 @@
 	let { 
 		data = [],           // Array of { year, value } objects
 		activeYear = null,   // Year to highlight (optional)
-		title = "% value"    // Title text to display above bars
+		title = "% value",   // Title text to display above bars
+		colors = null        // Color scheme array to use for bars
 	} = $props();
+	
+	// Derive colors from scheme: lightest for background, mid-dark for fill
+	// Falls back to purple-blue defaults if colors array is missing
+	let backgroundColor = $derived(colors?.[0] ?? "#e0ecf4");
+	let fillColor = $derived(colors?.[6] ?? "#8c6bb1");
 	
 	// Layout constants
 	const BAR_WIDTH = 200;
@@ -70,7 +76,7 @@
 					y={y} 
 					width={BAR_WIDTH} 
 					height={BAR_HEIGHT}
-					fill={hasValue ? "#e0ecf4" : "#e0e0e0"}
+					fill={hasValue ? backgroundColor : "#e0e0e0"}
 					stroke="#999"
 					stroke-width="0.5"
 				/>
@@ -82,7 +88,7 @@
 						y={y} 
 						width={fillWidth} 
 						height={BAR_HEIGHT}
-						fill="#8c6bb1"
+						fill={fillColor}
 					/>
 				{/if}
 				

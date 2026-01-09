@@ -5,7 +5,7 @@
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import ScrollyMaps from "$lib/scrolly/ScrollyMaps.svelte";
-	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, BUPU_COLORS } from "$lib/constants.js";
+	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, PU_COLOURS } from "$lib/constants.js";
 	import { getSectionsForLanguage } from "$lib/sectionsConfig.js";
   
 	// Data imports
@@ -130,7 +130,7 @@
 			percentages={languagePercentages}
 			width={1080}
 			height={750}
-			colors={BUPU_COLORS}
+			colors={PU_COLOURS}
 			resetTrigger={resetTrigger}
 		/>
 	{/key}

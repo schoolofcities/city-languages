@@ -1,7 +1,6 @@
 <script>
 	import { onMount, onDestroy } from "svelte";
 	import * as Plot from "@observablehq/plot";
-	import { BUPU_COLORS } from "$lib/constants.js";
 	import YearPercentBar from "$lib/chart-addons/YearPercentBar.svelte";
 
 	import outerTorontoBoundaries from '$data/TMUN_CSD_simp_3857.geo.json';
@@ -17,7 +16,7 @@
 		width = 1080,
 		height = 600,
 		blur = 6,
-		colors = BUPU_COLORS,
+		colors = [],
 		showLegend = true,
 		className = ""
 	} = $props();
@@ -53,7 +52,9 @@
 			},
 			color: {
 				legend: false,
-				scheme: "BuPu"
+				type: "linear",
+				range: ["white", ...colors],
+				clamp: true
 			},
 			marks: []
 		};
@@ -186,6 +187,7 @@
 				data={percentages.map(p => ({ year: p.year, value: p.pct }))}
 				{activeYear}
 				title="% of first-language speakers"
+				{colors}
 			/>
 	{/if}
 	
