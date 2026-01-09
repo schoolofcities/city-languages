@@ -26,6 +26,10 @@
 			height,
 			margin: 0,
 			axis: null,
+			projection: {
+				type: "reflect-y",
+				domain: boundaries,
+			},
 			color: {
 				legend: false,
 				scheme: "BuPu"
