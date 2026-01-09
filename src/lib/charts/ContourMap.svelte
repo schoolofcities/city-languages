@@ -4,10 +4,12 @@
 	import { BUPU_COLORS } from "$lib/constants.js";
 	import YearPercentBar from "$lib/chart-addons/YearPercentBar.svelte";
 
+	import outerTorontoBoundaries from '$data/TMUN_CSD_simp_3857.geo.json';
+	import innerTorontoBoundaries from '$data/TO_PREAM_simp_3857.geo.json';
+
 	export let data = [];
 	export let language = "num_chi";
 	export let thresholds = null;
-	export let boundaries = null;
 	export let percentages = [];
 	export let activeYear = null; // Year of currently displayed map
 	export let width = 800;
@@ -28,7 +30,7 @@
 			axis: null,
 			projection: {
 				type: "reflect-y",
-				domain: boundaries,
+				domain: outerTorontoBoundaries,
 			},
 			color: {
 				legend: false,
@@ -52,11 +54,22 @@
 			cfg.marks.push(Plot.contour(data, contourOpts));
 		}
 
-		if (boundaries) {
+		if (outerTorontoBoundaries) {
 			cfg.marks.push(
-				Plot.geo(boundaries, {
+				Plot.geo(outerTorontoBoundaries, {
 					stroke: "black",
 					strokeWidth: 1,
+					fill: "none"
+				})
+			);
+		}
+
+		if (innerTorontoBoundaries) {
+			cfg.marks.push(
+				Plot.geo(innerTorontoBoundaries, {
+					stroke: "black",
+					strokeWidth: 1,
+					strokeDasharray: "1,4",
 					fill: "none"
 				})
 			);

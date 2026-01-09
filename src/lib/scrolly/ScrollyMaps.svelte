@@ -6,7 +6,6 @@
 	let { 
 		sections = [], 
 		datasets = {}, 
-		boundaries = null, 
 		language = "num_chi", 
 		thresholds = null, 
 		percentages = [],
@@ -116,7 +115,6 @@
 						{thresholds}
 						{percentages}
 						activeYear={activeYear}
-						{boundaries}
 						{width}
 						{height}
 						{colors}

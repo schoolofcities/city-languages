@@ -12,7 +12,6 @@
 	import data1971 from '$data/num_speakers_centroid_1971.json';
 	import data1996 from '$data/num_speakers_centroid_1996.json';
 	import data2021 from '$data/num_speakers_centroid_2021.json';
-	import torontoBoundaries from '$data/TMUN_CSD_OldTO.geo.json';
 	import percentageData from '$data/total_pct_speakers_tmun.json';
   
 	// Datasets map keyed by year
@@ -129,7 +128,6 @@
 			{thresholds}
 			language={selectedLanguage}
 			percentages={languagePercentages}
-			boundaries={torontoBoundaries}
 			width={900}
 			height={600}
 			colors={BUPU_COLORS}
