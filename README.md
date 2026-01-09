@@ -1,6 +1,6 @@
 # City Languages - Toronto
 
-## Language Patterns in the Toronto Region
+## [Toronto's Linguistic Heritage](https://schoolofcities.github.io/city-languages/toronto)
 
 **Authors:** [Aniket Kali](https://www.linkedin.com/in/aniket-k-8a8b9921b/), [Jeff Allen](https://jamaps.github.io/)
 

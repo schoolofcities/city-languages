@@ -52,20 +52,40 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Toronto's Linguistic Heritage | School of Cities</title>
+
+	<meta name="description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
+	<meta name="author" content="School of Cities">
+	<meta rel="canonical" href="https://schoolofcities.github.io/city-languages/">
+
+	<meta property="og:title" content="Toronto's Linguistic Heritage" />
+	<meta property="og:description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://schoolofcities.github.io/city-languages/" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/city-languages/main/static/web-card.png" />
+	<meta property="og:locale" content="en_CA">
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Toronto's Linguistic Heritage" />
+	<meta name="twitter:description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/city-languages/main/static/web-card.png" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/city-languages/" />
+</svelte:head>
+
 <main>
 	<Logo logoType="Blue" backgroundColor="var(--brandWhite)"/>
 
-	<!-- <ImageSingle
-		imageURL="https://jamaps.github.io/photos/picimgs/taipei1_2025.jpg"
-		caption="Taipei skyline."
-		source="Jeff Allen."
+	<ImageSingle
+		imageURL="./web-card.png"
+		caption="Different languages over the years in Toronto."
 		altText=""
 		maxWidth="1080px"
-	/> -->
+	/>
 
 	<TitleStandard
-		title="Language Patterns in the Toronto Region"
-		subtitle="Exploring how language communities have evolved over five decades"
+		title="Toronto's Linguistic Heritage"
+		subtitle="Exploring how language communities have evolved over five decades in the Toronto region."
 	/>
 
 	<div class="text">
