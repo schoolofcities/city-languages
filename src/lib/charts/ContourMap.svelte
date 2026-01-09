@@ -6,21 +6,40 @@
 
 	import outerTorontoBoundaries from '$data/TMUN_CSD_simp_3857.geo.json';
 	import innerTorontoBoundaries from '$data/TO_PREAM_simp_3857.geo.json';
+	import municipalityCentroids from '$data/TMUN_CSD_OldTO_cent_3857.geo.json';
 
-	export let data = [];
-	export let language = "num_chi";
-	export let thresholds = null;
-	export let percentages = [];
-	export let activeYear = null; // Year of currently displayed map
-	export let width = 1080;
-	export let height = 600;
-	export let blur = 6;
-	export let colors = BUPU_COLORS;
-	export let showLegend = true;
-	export let className = "";
+	let {
+		data = [],
+		language = "num_chi",
+		thresholds = null,
+		percentages = [],
+		activeYear = null,
+		width = 1080,
+		height = 600,
+		blur = 6,
+		colors = BUPU_COLORS,
+		showLegend = true,
+		className = ""
+	} = $props();
 
 	let container;
 	let plotEl = null;
+	let windowWidth = $state(1080);
+
+	// Define which municipalities to show at different screen sizes
+	const largeScreenLabels = [
+		"Ajax", "Vaughan", "Markham", "Mississauga", 
+		"Brampton", "North York", "Scarborough", "Etobicoke", "Toronto"
+	];
+	const smallScreenLabels = [
+		"Mississauga", "Brampton", "Vaughan", "Markham", "Toronto",
+	];
+
+	// Filter centroids based on screen size
+	let filteredCentroids = $derived(municipalityCentroids.features.filter(feature => {
+		const labelsToShow = windowWidth < 768 ? smallScreenLabels : largeScreenLabels;
+		return labelsToShow.includes(feature.properties.NAME);
+	}));
 
 	function buildConfig() {
 		const cfg = {
@@ -75,6 +94,22 @@
 			);
 		}
 
+		// Add municipality labels
+		if (filteredCentroids && filteredCentroids.length > 0) {
+			cfg.marks.push(
+				Plot.text(filteredCentroids, {
+					x: d => d.geometry.coordinates[0],
+					y: d => d.geometry.coordinates[1],
+					text: d => d.properties.NAME.toUpperCase(),
+					fill: "#333",
+					stroke: "white",
+					strokeWidth: windowWidth < 768 ? 5 : 3,
+					fontSize: windowWidth < 768 ? 28 : 13,
+					fontWeight: 500
+				})
+			);
+		}
+
 		return cfg;
 	}
 
@@ -94,12 +129,27 @@
 	}
 
 	// Re-render when key props change
-	$: if (container && data && language) {
-		render();
-	}
+	$effect(() => {
+		if (container && data && language) {
+			render();
+		}
+	});
 
 	onMount(() => {
+		// Track window width for responsive labels
+		windowWidth = window.innerWidth;
+		
+		const handleResize = () => {
+			windowWidth = window.innerWidth;
+			render();
+		};
+		
+		window.addEventListener('resize', handleResize);
 		render();
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
 	});
 
 	onDestroy(() => {

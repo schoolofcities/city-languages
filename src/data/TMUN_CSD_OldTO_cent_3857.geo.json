@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"name": "TMUN_CSD_OldTO_cent_3857.geo",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::3857" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Pickering" }, "geometry": { "type": "Point", "coordinates": [ -8806960.723898578435183, 5451848.663700413890183 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ajax" }, "geometry": { "type": "Point", "coordinates": [ -8797308.357564635574818, 5445204.218990086577833 ] } },
+{ "type": "Feature", "properties": { "NAME": "Vaughan" }, "geometry": { "type": "Point", "coordinates": [ -8857111.346111243590713, 5440207.228286528028548 ] } },
+{ "type": "Feature", "properties": { "NAME": "Markham" }, "geometry": { "type": "Point", "coordinates": [ -8827089.071025585755706, 5447091.406790462322533 ] } },
+{ "type": "Feature", "properties": { "NAME": "Richmond Hill" }, "geometry": { "type": "Point", "coordinates": [ -8841813.523315995931625, 5450520.214718568138778 ] } },
+{ "type": "Feature", "properties": { "NAME": "Mississauga" }, "geometry": { "type": "Point", "coordinates": [ -8868034.682295775040984, 5403647.016603916883469 ] } },
+{ "type": "Feature", "properties": { "NAME": "Brampton" }, "geometry": { "type": "Point", "coordinates": [ -8877982.84961979277432, 5421538.784292073920369 ] } },
+{ "type": "Feature", "properties": { "NAME": "York" }, "geometry": { "type": "Point", "coordinates": [ -8847401.409057419747114, 5416835.652372649870813 ] } },
+{ "type": "Feature", "properties": { "NAME": "North York" }, "geometry": { "type": "Point", "coordinates": [ -8842162.252261988818645, 5427123.000103130936623 ] } },
+{ "type": "Feature", "properties": { "NAME": "East York" }, "geometry": { "type": "Point", "coordinates": [ -8831759.944384729489684, 5419228.060709537938237 ] } },
+{ "type": "Feature", "properties": { "NAME": "Scarborough" }, "geometry": { "type": "Point", "coordinates": [ -8820620.484334686771035, 5431170.171123929321766 ] } },
+{ "type": "Feature", "properties": { "NAME": "Etobicoke" }, "geometry": { "type": "Point", "coordinates": [ -8856001.03014824911952, 5414824.304253088310361 ] } },
+{ "type": "Feature", "properties": { "NAME": "Toronto" }, "geometry": { "type": "Point", "coordinates": [ -8838023.707332508638501, 5414219.618560852482915 ] } }
+]
+}
