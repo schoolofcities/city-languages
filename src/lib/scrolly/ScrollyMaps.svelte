@@ -1,6 +1,14 @@
 <script>
-	import { fade } from "svelte/transition";
 	import ContourMap from "$lib/charts/ContourMap.svelte";
+
+	// Configuration constants
+	const OBSERVER_OPTIONS = {
+		root: null,
+		rootMargin: "-45% 0px -45% 0px",
+		threshold: 0
+	};
+	const INIT_DELAY = 100;
+	const RESET_DURATION = 1000;
 
 	// Props destructuring with defaults
 	let { 
@@ -11,59 +19,39 @@
 		percentages = [],
 		width = 1080, 
 		height = 600, 
-		colors = null,
+		colors = [],
 		resetTrigger = 0
 	} = $props();
 
-	// Reactive state
+	// Component state
 	let scrollContainer = $state(null);
 	let currentSectionIndex = $state(0);
 	let observer = $state(null);
 	let isResetting = $state(false);
-
-	// DOM refs for IntersectionObserver (not reactive state)
 	let sectionEls = $state([]);
 
-	// Derived values
-	let activeSection = $derived(sections[currentSectionIndex] || sections[0]);
-
-	let activeMapData = $derived(
-		activeSection?.year && datasets[activeSection.year] 
-			? datasets[activeSection.year] 
-			: []
-	);
-
+	// Derived values - reactive to currentSectionIndex changes
+	let activeSection = $derived(sections[currentSectionIndex] ?? sections[0]);
+	let activeMapData = $derived(datasets[activeSection?.year] ?? []);
 	let activeYear = $derived(activeSection?.year);
 
-	// Reset helper
-	function resetToFirstSection() {
-		currentSectionIndex = 0;
-	}
-
-	// Watch for reset trigger
+	// Handle reset trigger from parent
 	$effect(() => {
 		if (resetTrigger > 0) {
 			isResetting = true;
-			resetToFirstSection();
+			currentSectionIndex = 0;
 
 			setTimeout(() => {
 				isResetting = false;
-			}, 1000);
+			}, RESET_DURATION);
 		}
 	});
 
-	// Observer options
-	const OBSERVER_OPTIONS = {
-		root: null,
-		rootMargin: "-45% 0px -45% 0px",
-		threshold: 0
-	};
-
-	// Initialize scroll observer
+	// Initialize IntersectionObserver for scroll-triggered section changes
 	$effect(() => {
 		if (!scrollContainer || sections.length === 0) return;
 
-		resetToFirstSection();
+		currentSectionIndex = 0;
 
 		const initTimeout = setTimeout(() => {
 			sectionEls = sections
@@ -74,8 +62,9 @@
 				)
 				.filter(Boolean);
 
-			if (sectionEls.length > 0) {
-				observer = new IntersectionObserver((entries) => {
+			if (sectionEls.length === 0) return;
+
+			observer = new IntersectionObserver((entries) => {
 					if (isResetting) return;
 
 					entries.forEach((entry) => {
@@ -85,12 +74,11 @@
 								currentSectionIndex = index;
 							}
 						}
-					});
-				}, OBSERVER_OPTIONS);
+				});
+			}, OBSERVER_OPTIONS);
 
-				sectionEls.forEach(section => observer.observe(section));
-			}
-		}, 100);
+			sectionEls.forEach(section => observer.observe(section));
+		}, INIT_DELAY);
 
 		return () => {
 			clearTimeout(initTimeout);
@@ -108,19 +96,17 @@
 	<div class="map-sticky-wrapper">
 		{#key `${currentSectionIndex}-${language}`}
 			<div class="map-viewport" style="width:{width}px; height:{height}px;">
-				<div>
-					<ContourMap
-						data={activeMapData}
-						{language}
-						{thresholds}
-						{percentages}
-						activeYear={activeYear}
-						{width}
-						{height}
-						{colors}
-						showLegend={true}
-					/>
-				</div>
+				<ContourMap
+					data={activeMapData}
+					{language}
+					{thresholds}
+					{percentages}
+					{activeYear}
+					{width}
+					{height}
+					{colors}
+					showLegend={true}
+				/>
 			</div>
 		{/key}
 	</div>

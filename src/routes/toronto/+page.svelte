@@ -5,7 +5,7 @@
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import ScrollyMaps from "$lib/scrolly/ScrollyMaps.svelte";
-	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, PU_COLOURS } from "$lib/constants.js";
+	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, PU_COLOURS, MAP_DIMENSIONS } from "$lib/constants.js";
 	import { getSectionsForLanguage } from "$lib/sectionsConfig.js";
   
 	// Data imports
@@ -13,6 +13,9 @@
 	import data1996 from '$data/num_speakers_centroid_1996.json';
 	import data2021 from '$data/num_speakers_centroid_2021.json';
 	import percentageData from '$data/total_pct_speakers_tmun.json';
+
+	// Configuration constants
+	const DEFAULT_LANGUAGE = "num_chi";
   
 	// Datasets map keyed by year
 	const datasets = {
@@ -21,12 +24,12 @@
 		2021: data2021
 	};
   
-	// Language controls
-	let selectedLanguage = $state("num_chi");
+	// Component state
+	let selectedLanguage = $state(DEFAULT_LANGUAGE);
 	let languageSelectorElement = $state(null);
 	let resetTrigger = $state(0);
   
-	// Derived values
+	// Derived reactive values
 	let sections = $derived(getSectionsForLanguage(selectedLanguage, LANGUAGE_OPTIONS[selectedLanguage]));
 	let thresholds = $derived(LANGUAGE_THRESHOLDS[selectedLanguage]);
 	let percentKey = $derived(selectedLanguage.replace('num_', 'pct_'));
@@ -38,16 +41,11 @@
 	);
 
 	function scrollToLanguageSelector() {
-		// Trigger reset
 		resetTrigger += 1;
-		
-		// Scroll to language selector
-		if (languageSelectorElement) {
-			languageSelectorElement.scrollIntoView({ 
-				behavior: 'smooth', 
-				block: 'center' 
-			 });
-		}
+		languageSelectorElement?.scrollIntoView({ 
+			behavior: 'smooth', 
+			block: 'center' 
+		});
 	}
 </script>
 
@@ -128,10 +126,10 @@
 			{thresholds}
 			language={selectedLanguage}
 			percentages={languagePercentages}
-			width={1080}
-			height={750}
+			width={MAP_DIMENSIONS.width}
+			height={MAP_DIMENSIONS.height}
 			colors={PU_COLOURS}
-			resetTrigger={resetTrigger}
+			{resetTrigger}
 		/>
 	{/key}
 

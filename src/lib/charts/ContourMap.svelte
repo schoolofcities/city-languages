@@ -2,10 +2,25 @@
 	import { onMount, onDestroy } from "svelte";
 	import * as Plot from "@observablehq/plot";
 	import YearPercentBar from "$lib/chart-addons/YearPercentBar.svelte";
+	import { MOBILE_BREAKPOINT } from "$lib/constants.js";
 
 	import outerTorontoBoundaries from '$data/TMUN_CSD_simp_3857.geo.json';
 	import innerTorontoBoundaries from '$data/TO_PREAM_simp_3857.geo.json';
 	import municipalityCentroids from '$data/TMUN_CSD_OldTO_cent_3857.geo.json';
+
+	// Configuration constants
+	const LABEL_CONFIG = {
+		large: {
+			municipalities: ["Ajax", "Vaughan", "Markham", "Mississauga", "Brampton", "North York", "Scarborough", "Etobicoke", "Toronto"],
+			fontSize: 13,
+			strokeWidth: 3
+		},
+		small: {
+			municipalities: ["Mississauga", "Brampton", "Vaughan", "Markham", "Toronto"],
+			fontSize: 28,
+			strokeWidth: 5
+		}
+	};
 
 	let {
 		data = [],
@@ -25,20 +40,14 @@
 	let plotEl = null;
 	let windowWidth = $state(1080);
 
-	// Define which municipalities to show at different screen sizes
-	const largeScreenLabels = [
-		"Ajax", "Vaughan", "Markham", "Mississauga", 
-		"Brampton", "North York", "Scarborough", "Etobicoke", "Toronto"
-	];
-	const smallScreenLabels = [
-		"Mississauga", "Brampton", "Vaughan", "Markham", "Toronto",
-	];
-
-	// Filter centroids based on screen size
-	let filteredCentroids = $derived(municipalityCentroids.features.filter(feature => {
-		const labelsToShow = windowWidth < 768 ? smallScreenLabels : largeScreenLabels;
-		return labelsToShow.includes(feature.properties.NAME);
-	}));
+	// Derived reactive values
+	let isMobile = $derived(windowWidth < MOBILE_BREAKPOINT);
+	let labelSettings = $derived(isMobile ? LABEL_CONFIG.small : LABEL_CONFIG.large);
+	let filteredCentroids = $derived(
+		municipalityCentroids.features.filter(f => 
+			labelSettings.municipalities.includes(f.properties.NAME)
+		)
+	);
 
 	function buildConfig() {
 		const cfg = {
@@ -74,29 +83,24 @@
 			cfg.marks.push(Plot.contour(data, contourOpts));
 		}
 
-		if (outerTorontoBoundaries) {
-			cfg.marks.push(
-				Plot.geo(outerTorontoBoundaries, {
+		// Add geographic boundaries
+		const boundaries = [
+			{ geo: outerTorontoBoundaries, style: {} },
+			{ geo: innerTorontoBoundaries, style: { strokeDasharray: "1,4" } }
+		];
+		boundaries.forEach(({ geo, style }) => {
+			if (geo) {
+				cfg.marks.push(Plot.geo(geo, {
 					stroke: "black",
 					strokeWidth: 1,
-					fill: "none"
-				})
-			);
-		}
-
-		if (innerTorontoBoundaries) {
-			cfg.marks.push(
-				Plot.geo(innerTorontoBoundaries, {
-					stroke: "black",
-					strokeWidth: 1,
-					strokeDasharray: "1,4",
-					fill: "none"
-				})
-			);
-		}
+					fill: "none",
+					...style
+				}));
+			}
+		});
 
 		// Add municipality labels
-		if (filteredCentroids && filteredCentroids.length > 0) {
+		if (filteredCentroids.length > 0) {
 			cfg.marks.push(
 				Plot.text(filteredCentroids, {
 					x: d => d.geometry.coordinates[0],
@@ -104,8 +108,8 @@
 					text: d => d.properties.NAME.toUpperCase(),
 					fill: "#333",
 					stroke: "white",
-					strokeWidth: windowWidth < 768 ? 5 : 3,
-					fontSize: windowWidth < 768 ? 28 : 13,
+					strokeWidth: labelSettings.strokeWidth,
+					fontSize: labelSettings.fontSize,
 					fontWeight: 500
 				})
 			);
@@ -118,35 +122,30 @@
 		if (!container) return;
 		
 		// Clear previous plot
-		if (plotEl) {
+		if (plotEl?.remove) {
 			plotEl.remove();
-			plotEl = null;
 		}
 		
+		plotEl = Plot.plot(buildConfig());
 		container.innerHTML = "";
-		const cfg = buildConfig();
-		plotEl = Plot.plot(cfg);
 		container.appendChild(plotEl);
 	}
 
-	// Re-render when key props change
+	// Re-render when data/language changes
 	$effect(() => {
-		if (container && data && language) {
+		if (container && data.length && language) {
 			render();
 		}
 	});
 
 	onMount(() => {
-		// Track window width for responsive labels
 		windowWidth = window.innerWidth;
 		
 		const handleResize = () => {
 			windowWidth = window.innerWidth;
-			render();
 		};
 		
 		window.addEventListener('resize', handleResize);
-		render();
 
 		return () => {
 			window.removeEventListener('resize', handleResize);
@@ -154,15 +153,12 @@
 	});
 
 	onDestroy(() => {
-		if (plotEl && plotEl.remove) {
-			plotEl.remove();
-		}
-		plotEl = null;
+		plotEl?.remove();
 	});
 </script>
 
 <div class="contour-map {className}">
-	{#if showLegend}
+	{#if showLegend && colors.length > 0}
 		<div class="legend">
 			<svg class="color-bar" width="240" height="12" viewBox="0 0 240 12" preserveAspectRatio="none">
 				{#each colors as color, i}

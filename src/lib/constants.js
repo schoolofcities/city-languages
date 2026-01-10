@@ -3,6 +3,14 @@
 
 import { ticks } from "d3-array";
 
+// Map configuration
+export const MAP_DIMENSIONS = {
+  width: 1080,
+  height: 750
+};
+
+export const MOBILE_BREAKPOINT = 768;
+
 export const LANGUAGE_OPTIONS = {
   num_eng: "English",
   num_not_eng: "Non-English",
