@@ -50,6 +50,16 @@ export const BUPU_COLORS = [
   "#4d004b"
 ];
 
+export const SOFC_COLOURS = [
+  "#c8e0f7ff",
+  "#6FC7EA",
+  "#34A1C4",
+  "#007FA3",
+  "#0F5A83",
+  "#1E3765",
+  "#091f48ff"
+]
+
 export const PU_COLOURS = [
   "#F0E9F2",
   "#E2D3E4",
