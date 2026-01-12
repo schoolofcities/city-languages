@@ -137,7 +137,7 @@
 
 	<div class="back-to-top">
 		<button onclick={scrollToLanguageSelector}>
-			← Select New Language
+			← Select new language
 		</button>
 	</div>
 
@@ -162,9 +162,7 @@
 			<p>
 				All <a href='https://github.com/schoolofcities/city-languages/tree/main' target="_blank">code</a> and <a href='https://github.com/schoolofcities/city-languages/tree/main/data/language' target="_blank">processed data</a> used in this project are publicly available in the accompanying GitHub repository.
 			</p>
-		</div>
-		<div class="details">
-			<h2>Acknowledgements</h2>
+			<h3>Acknowledgements</h3>
 			<p>
 				A special thanks to the many people who contributed context, insight, and background on different linguistic communities: Francesca Allodi-Ross (Spanish), Vidhya Elango (Japanese), Gabriela Pawlus Kasprzak (Polish), Naomi Nagy (Chinese, Japanese, Korean, Italian, Russian, Spanish, Tagalog), Serene Tan (Chinese), Aloysius Wong (Tagalog), Miru Yogarajah (Tamil), and Michelle Zhang (Chinese).
 			</p>
