@@ -76,7 +76,7 @@
 	<ImageSingle
 		imageURL="./web-card.png"
 		caption="Different languages over the years in Toronto."
-		source="SOURCE:????????"
+		source="Credit: <a href='https://localfilmculturestoronto.wordpress.com/when-chinatown-was-yiddish-the-old-standard-theatre/#_edn5' target='_blank'>Yiddish</a>, <a href='https://soandco.ca/does-toronto-have-a-little-italy/' target='_blank'>Italian</a>, <a href='https://www.heritagetoronto.org/explore/riding-the-waves/' target='_blank'>Spanish</a>, <a href='https://hongkonger.world/2025/02/12/torontos-three-chinatowns-a-history/' target='_blank'>Chinese</a>, <a href='https://www.bangladeshcentre.ca/?lightbox=dataItem-mdyybae91' target='_blank'>Bengali</a>"
 		altText="Collage of 5 historical photos in Toronto showing different languages on signs and banners"
 		maxWidth="1080px"
 		link="no"
