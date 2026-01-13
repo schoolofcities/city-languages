@@ -172,7 +172,7 @@
 	}
 		
 	.text-section {
-		min-height: 100vh;
+		min-height: 150vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -246,7 +246,7 @@
 		}
 
 		.text-section {
-			min-height: 120vh;
+			min-height: 170vh;
 			padding: 3rem 1rem;
 		}
 
@@ -262,7 +262,7 @@
 
 	@media (max-width: 480px) {
 		.text-section {
-			min-height: 140vh;
+			min-height: 190vh;
 			padding: 4rem 0.75rem;
 		}
 	}
