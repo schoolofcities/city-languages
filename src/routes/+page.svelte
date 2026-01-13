@@ -4,7 +4,7 @@
 	import { goto } from '$app/navigation';
 
 	onMount(() => {
-		goto('/city-languages/toronto');
+		goto('/languages/toronto-linguistic-history');
 	});
 
 	// import '../assets/global-styles.css';
@@ -22,18 +22,18 @@
 
 	<meta name="description" content="" />
 	<meta name="author" content="School of Cities">
-	<meta rel="canonical" href="https://schoolofcities.github.io/city-languages/">
+	<meta rel="canonical" href="https://schoolofcities.github.io/languages/">
 
 	<meta property="og:title" content="City Languages" />
 	<meta property="og:description" content="" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/city-languages/" />
+	<meta property="og:url" content="https://schoolofcities.github.io/languages/" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="City Languages" />
 	<meta name="twitter:description" content="" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/city-languages/" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/languages/" />
 </svelte:head>
 
 

@@ -54,20 +54,20 @@
 
 	<meta name="description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
 	<meta name="author" content="School of Cities">
-	<meta rel="canonical" href="https://schoolofcities.github.io/city-languages/">
+	<meta rel="canonical" href="https://schoolofcities.github.io/languages/">
 
 	<meta property="og:title" content="Toronto's Linguistic Heritage" />
 	<meta property="og:description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://schoolofcities.github.io/city-languages/" />
-	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/city-languages/main/static/web-card.png" />
+	<meta property="og:url" content="https://schoolofcities.github.io/languages/" />
+	<meta property="og:image" content="https://raw.githubusercontent.com/schoolofcities/languages/main/static/web-card.png" />
 	<meta property="og:locale" content="en_CA">
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Toronto's Linguistic Heritage" />
 	<meta name="twitter:description" content="Explore how Toronto's linguistic landscape has evolved over decades." />
-	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/city-languages/main/static/web-card.png" />
-	<meta name="twitter:site" content="https://schoolofcities.github.io/city-languages/" />
+	<meta name="twitter:image" content="https://raw.githubusercontent.com/schoolofcities/languages/main/static/web-card.png" />
+	<meta name="twitter:site" content="https://schoolofcities.github.io/languages/" />
 </svelte:head>
 
 <main>
@@ -164,7 +164,7 @@
 			</p>
 
 			<p>
-				All <a href='https://github.com/schoolofcities/city-languages/tree/main' target="_blank">code</a> and <a href='https://github.com/schoolofcities/city-languages/tree/main/data/language' target="_blank">processed data</a> used in this project are publicly available in the accompanying GitHub repository.
+				All <a href='https://github.com/schoolofcities/languages/tree/main' target="_blank">code</a> and <a href='https://github.com/schoolofcities/languages/tree/main/data/language' target="_blank">processed data</a> used in this project are publicly available in the accompanying GitHub repository.
 			</p>
 			<h3>Acknowledgements</h3>
 			<p>
