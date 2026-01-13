@@ -325,7 +325,8 @@ export const SECTIONS_BY_LANGUAGE = {
 		},
 		{
 			year: 1971,
-			image: "https://jamaps.github.io/photos/picimgs/taipei1_2025.jpg",
+			image: "./web-card.png",
+			caption: `Photo credit: <a href="https://jamaps.github.io" target="_blank">Jeff Allen</a>`,
 			text: `<p>Historic Chinatown</p>
 				<p>The original Chinatown was a vibrant community hub.</p>`
 		},

@@ -123,6 +123,11 @@
 					{#if section.image}
 						<div class="section-image">
 							<img src={section.image} alt="" loading="lazy" />
+							{#if section.caption}
+								<div class="image-caption">
+									{@html section.caption}
+								</div>
+							{/if}
 						</div>
 					{/if}
 					{@html section.text}
@@ -205,6 +210,22 @@
 		width: 100%;
 		height: auto;
 		display: block;
+	}
+
+	.image-caption {
+		padding: 0.5rem 0.25rem 0 0.25rem;
+		font-size: 0.75rem;
+		color: #666;
+		line-height: 1.3;
+	}
+
+	.image-caption :global(a) {
+		color: #0066cc;
+		text-decoration: none;
+	}
+
+	.image-caption :global(a:hover) {
+		text-decoration: underline;
 	}
 
 	@media (min-width: 640px) {
