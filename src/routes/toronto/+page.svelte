@@ -144,7 +144,11 @@
 	<div class="text">
 		<h3>Data & Methodology</h3>
 			<p>
-				Language data are from the Canadian census and were obtained UNI-CEN. After reviewing availability across multiple decades, we selected a subset of census years (1971, 1996, and 2021) and languages for which data were consistently available and represented a substantial number of speakers. Due to irregularities and gaps in historical census reporting, additional languages and years could not be included. We chose to use “First Language” rather than “Knowledge of Language”, as the latter is inconsistently reported in earlier census years. A full list of census language codes used in this project is <a href='https://github.com/schoolofcities/city-languages/blob/main/analysis/constants.py' target="_blank">available here</a>.
+				Language data are from the Canadian census and were obtained from <a href="https://observatory.uwo.ca/unicen/index.html" target="_blank">UNI-CEN</a>. After reviewing availability across multiple decades, we selected a subset of census years (1971, 1996, and 2021) and languages for which data were consistently available and represented a substantial number of speakers. Due to irregularities and gaps in historical census reporting, additional languages and years could not be included. 
+			</p>
+
+			<p>
+				We chose to use "First Language" ("<a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=pop095" target="_blank">Mother Tongue</a>") rather than "<a href="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=pop054" target="_blank">Knowledge of</a>", as the latter is inconsistently reported in earlier census years. "First Language" denotes the language learned at home in childhood and still understood by the person, whereas "Knowledge of" refers to whether a person can conduct a conversation in a given language. We previously produced an interactive map on <a href="https://schoolofcities.github.io/gtha-language-map/" target="_blank">knowledge of languages and the GTHA</a>, and Alex McPhee created a map of <a href="https://pronghornmaps.com/toronto/" target="_blank">mother tongues in Toronto</a>.
 			</p>
 
 			<p>
@@ -152,7 +156,7 @@
 			</p>
 
 			<p>
-				Rather than mapping census geographies (such as census tracts), we used population-weighted aerial interpolation to generate a uniform grid of 1 km squares across the Toronto region. This approach allowed us to create smooth contour maps using <a href="https://observablehq.com/plot/" target="_blank">Observable's Plot library</a>.
+				Rather than mapping census geographies (such as census tracts), we used <a href="https://cran.r-project.org/web/packages/areal/vignettes/areal-weighted-interpolation.html" target="_blank">population-weighted aerial interpolation</a> to generate a uniform grid of 1 km squares across the Toronto region. This approach allowed us to create smooth contour maps using <a href="https://observablehq.com/plot/" target="_blank">Observable's Plot library</a>.
 			</p>
 
 			<p>
