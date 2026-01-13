@@ -1,6 +1,6 @@
 # City Languages - Toronto
 
-## [Toronto's Linguistic Heritage](https://schoolofcities.github.io/city-languages/toronto)
+## [Toronto's Linguistic Heritage](https://schoolofcities.github.io/languages/toronto-linguistic-history)
 
 **Authors:** [Aniket Kali](https://www.linkedin.com/in/aniket-k-8a8b9921b/), [Jeff Allen](https://jamaps.github.io/)
 
