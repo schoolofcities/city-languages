@@ -182,11 +182,11 @@
 	.text-box {
 		width: 100%;
 		max-width: 21.4375rem;
-		background: #aacce1;
+		background: #ffffff;
 		padding: 0.5rem 1rem;
 		border-radius: 0.5rem;
-		border: 1px solid rgba(36, 0, 42, 0.12);
-		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		border: 1px solid rgba(36, 0, 42, 0.361);
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.408);
 		pointer-events: auto;
 	}
 

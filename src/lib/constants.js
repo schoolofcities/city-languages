@@ -38,70 +38,18 @@ export const LANGUAGE_OPTIONS = {
   num_yid: "Yiddish"
 };
 
-// Colors: BuPu (reversed lighter->darker so index 0 is light)
-export const BUPU_COLORS = [
-  "#e0ecf4",
-  "#bfd3e6",
-  "#9ebcda",
-  "#8c96c6",
-  "#8c6bb1",
-  "#88419d",
-  "#810f7c",
-  "#4d004b"
-];
-
-export const PU_COLOURS = [
-  "#F0E9F2",
-  "#E2D3E4",
-  "#D3BDD7",
-  "#C5A7CA",
-  "#B692BD",
-  "#A77CAF",
-  "#9966A2",
-  "#8A5095",
-  "#7C3A87",
-]
-
-export const GN_COLOURS = [
-  "#F4F9EA",
-  "#E8F2D5",
-  "#DDECC0",
-  "#D1E5AB",
-  "#C6DF97",
-  "#BBD982",
-  "#AFD26D",
-  "#A4CC58",
-  "#98C543",
-]
-
-export const YL_COLOURS = [
-  "#FEF9E6",
-  "#FCF3CC",
-  "#FBEEB3",
-  "#F9E899",
-  "#F8E280",
-  "#F7DC66",
-  "#F5D64D",
-  "#F4D133",
-  "#F2CB1A",
-]
-
-export const BG_COLOURS = [
-  "#E6F6F3",
-  "#CCECE7",
-  "#B3E3DC",
-  "#99D9D0",
-  "#80D0C4",
-  "#66C7B8",
-  "#4DBDAC",
-  "#33B4A1",
-  "#1AAA95",
+export const SOFC_COLOURS = [
+  "#c8e0f7ff",
+  "#6FC7EA",
+  "#34A1C4",
+  "#007FA3",
+  "#0F5A83",
+  "#1E3765",
+  "#091f48ff"
 ]
 
 
 // LANGUAGE_THRESHOLDS: choose thresholds to cover reasonable ranges.
-// Where you previously used ticks(...), keep those here.
-// NOTE: these are *suggested* defaults; you can override per-section.
 export const LANGUAGE_THRESHOLDS = {
   num_eng: ticks(0, 7000, 12),
   num_not_eng: ticks(0, 7000, 12),

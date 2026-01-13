@@ -11,12 +11,12 @@
 	// Configuration constants
 	const LABEL_CONFIG = {
 		large: {
-			municipalities: ["Ajax", "Vaughan", "Markham", "Mississauga", "Brampton", "North York", "Scarborough", "Etobicoke", "Toronto"],
-			fontSize: 13,
+			municipalities: ["Ajax", "Vaughan", "Markham", "Mississauga", "Brampton", "North York", "Scarborough", "Etobicoke", "Toronto", "Pickering", "Richmond Hill"],
+			fontSize: 12,
 			strokeWidth: 3
 		},
 		small: {
-			municipalities: ["Mississauga", "Brampton", "Vaughan", "Markham", "Toronto"],
+			municipalities: ["Ajax", "Mississauga", "Brampton", "Vaughan", "Markham", "Toronto"],
 			fontSize: 28,
 			strokeWidth: 5
 		}
@@ -160,12 +160,12 @@
 <div class="contour-map {className}">
 	{#if showLegend && colors.length > 0}
 		<div class="legend">
-			<svg class="color-bar" width="240" height="12" viewBox="0 0 240 12" preserveAspectRatio="none">
+			<svg class="color-bar" width="225" height="12" viewBox="0 0 240 12" preserveAspectRatio="none">
 				{#each colors as color, i}
 					<rect
-						x={i * (240 / colors.length)}
+						x={i * (225 / colors.length)}
 						y="0"
-						width={240 / colors.length}
+						width={225 / colors.length}
 						height="12"
 						fill={color}
 					/>
@@ -223,7 +223,7 @@
 	.legend-labels {
 		display: flex;
 		justify-content: space-between;
-		width: 240px;
+		width: 210px;
 		font-size: 12px;
 		color: #222;
 		margin-top: 4px;

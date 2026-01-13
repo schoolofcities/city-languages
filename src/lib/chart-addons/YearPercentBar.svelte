@@ -12,9 +12,8 @@
 	} = $props();
 	
 	// Derive colors from scheme: lightest for background, mid-dark for fill
-	// Falls back to purple-blue defaults if colors array is missing
-	let backgroundColor = $derived(colors?.[0] ?? "#e0ecf4");
-	let fillColor = $derived(colors?.[6] ?? "#8c6bb1");
+	let backgroundColor = "#d4ebf4";
+	let fillColor = "#1E3765";
 	
 	// Layout constants
 	const BAR_WIDTH = 200;

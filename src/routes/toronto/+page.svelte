@@ -5,7 +5,7 @@
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import ScrollyMaps from "$lib/scrolly/ScrollyMaps.svelte";
-	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, PU_COLOURS, MAP_DIMENSIONS } from "$lib/constants.js";
+	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, SOFC_COLOURS, MAP_DIMENSIONS } from "$lib/constants.js";
 	import { getSectionsForLanguage } from "$lib/sectionsConfig.js";
   
 	// Data imports
@@ -76,8 +76,10 @@
 	<ImageSingle
 		imageURL="./web-card.png"
 		caption="Different languages over the years in Toronto."
-		altText=""
+		source="SOURCE:????????"
+		altText="Collage of 5 historical photos in Toronto showing different languages on signs and banners"
 		maxWidth="1080px"
+		link="no"
 	/>
 
 	<TitleStandard
@@ -92,7 +94,7 @@
 		/>
 
 		<p>
-			In today's Toronto and its surrounding urban region, it is more common for someone's mother tongue to be a language other than English. A long time hub for immigration to Canada, the region is one of the world's most multicultural. And, as a result, has long been home to dozens of languages from around the globe.
+			In today's Toronto and surrounding municipalities, it is more common for someone's mother tongue to be a language other than English. A long time hub for immigration to Canada, the region is one of the world's most multicultural. And, as a result, has long been home to dozens of languages from around the globe.
 		</p>
 
 		<p>
@@ -128,31 +130,21 @@
 			percentages={languagePercentages}
 			width={MAP_DIMENSIONS.width}
 			height={MAP_DIMENSIONS.height}
-			colors={PU_COLOURS}
+			colors={SOFC_COLOURS}
 			{resetTrigger}
 		/>
 	{/key}
 
 	<div class="back-to-top">
 		<button onclick={scrollToLanguageSelector}>
-			← Select New Language
+			← Select new language
 		</button>
 	</div>
 
 	<div class="text">
-		<div class="details">
-			<h2>Acknowledgements</h2>
+		<h3>Data & Methodology</h3>
 			<p>
-				A special thanks to the many people who contributed context, insight, and background on different linguistic communities: Francesca Allodi-Ross (Spanish), Vidhya Elango (Japanese), Gabriela Pawlus Kasprzak (Polish), Naomi Nagy (Chinese, Japanese, Korean, Italian, Russian, Spanish, Tagalog), Serene Tan (Chinese), Aloysius Wong (Tagalog), Miru Yogarajah (Tamil), and Michelle Zhang (Chinese).
-			</p>
-
-			<p>
-				We also thank <a href='https://www.naelshiab.com/' target="_blank">Nael Shiab</a> for his clear and intuitive methods section in his project on <a href='https://newsinteractives.cbc.ca/features/2025/climate-matches/' target="_blank">rising temperatures in Canada</a>, which provided inspiration for both the methodological approach and visual design of this project. 
-			</p>
-
-			<h2>Data & Methodology</h2>
-			<p>
-				Language data were obtained from the Canadian census via UNI-CEN. After reviewing availability across multiple decades, we selected a subset of census years (1971, 1996, and 2021) and languages for which data were consistently available and represented a substantial number of speakers. Due to irregularities and gaps in historical census reporting, additional languages and years could not be included. We chose to use “First Language” rather than “Knowledge of Language”, as the latter is inconsistently reported in earlier census years. A full list of census language codes used in this project is <a href='https://github.com/schoolofcities/city-languages/blob/main/analysis/constants.py' target="_blank">available here</a>.
+				Language data are from the Canadian census and were obtained UNI-CEN. After reviewing availability across multiple decades, we selected a subset of census years (1971, 1996, and 2021) and languages for which data were consistently available and represented a substantial number of speakers. Due to irregularities and gaps in historical census reporting, additional languages and years could not be included. We chose to use “First Language” rather than “Knowledge of Language”, as the latter is inconsistently reported in earlier census years. A full list of census language codes used in this project is <a href='https://github.com/schoolofcities/city-languages/blob/main/analysis/constants.py' target="_blank">available here</a>.
 			</p>
 
 			<p>
@@ -160,11 +152,7 @@
 			</p>
 
 			<p>
-				Rather than mapping raw census geographies, we used population-weighted aerial interpolation to generate a uniform grid of 1 km squares across the Toronto region. This approach allowed us to create smooth contour maps using Observable's Plot library.
-			</p>
-
-			<p>
-				Geographic coverage was limited to Toronto and select surrounding municipalities in order to balance regional context with population density. The final set of municipalities included Toronto, Mississauga, Brampton, Vaughan, Richmond Hill, Markham, Pickering, and Ajax.
+				Rather than mapping census geographies (such as census tracts), we used population-weighted aerial interpolation to generate a uniform grid of 1 km squares across the Toronto region. This approach allowed us to create smooth contour maps using <a href="https://observablehq.com/plot/" target="_blank">Observable's Plot library</a>.
 			</p>
 
 			<p>
@@ -174,18 +162,22 @@
 			<p>
 				All <a href='https://github.com/schoolofcities/city-languages/tree/main' target="_blank">code</a> and <a href='https://github.com/schoolofcities/city-languages/tree/main/data/language' target="_blank">processed data</a> used in this project are publicly available in the accompanying GitHub repository.
 			</p>
-		</div>
+			<h3>Acknowledgements</h3>
+			<p>
+				A special thanks to the many people who contributed context, insight, and background on different linguistic communities: Francesca Allodi-Ross (Spanish), Vidhya Elango (Japanese), Gabriela Pawlus Kasprzak (Polish), Naomi Nagy (Chinese, Japanese, Korean, Italian, Russian, Spanish, Tagalog), Serene Tan (Chinese), Aloysius Wong (Tagalog), Miru Yogarajah (Tamil), and Michelle Zhang (Chinese).
+			</p>
+
+			<p>
+				We also thank <a href='https://www.naelshiab.com/' target="_blank">Nael Shiab</a> for his clear and intuitive methods section in his project on <a href='https://newsinteractives.cbc.ca/features/2025/climate-matches/' target="_blank">rising temperatures in Canada</a>, which provided inspiration for both the methodological approach and visual design of this project. 
+			</p>
+
+			
 	</div>
 
 	<Footer />
 </main>
 
 <style>
-	.text {
-		max-width: 700px;
-		margin: 0 auto;
-		padding: 1rem 1.5rem;
-	}
 
 	.details {
 		margin-top: 2rem;
@@ -242,7 +234,7 @@
 		font-size: 1rem;
 		font-weight: 600;
 		color: white;
-		background: #0066cc;
+		background: var(--brandDarkBlue);
 		border: none;
 		border-radius: 4px;
 		cursor: pointer;
@@ -251,6 +243,10 @@
 		pointer-events: auto;
 		touch-action: manipulation;
 		-webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+	}
+
+	.back-to-top button:hover {
+		opacity: 0.75;
 	}
 
 	@media (max-width: 768px) {
