@@ -168,7 +168,7 @@
 			</p>
 			<h3>Acknowledgements</h3>
 			<p>
-				A special thanks to the many people who contributed context, insight, and background on different linguistic communities: Francesca Allodi-Ross (Spanish), Vidhya Elango (Japanese), Gabriela Pawlus Kasprzak (Polish), Naomi Nagy (Chinese, Japanese, Korean, Italian, Russian, Spanish, Tagalog), Serene Tan (Chinese), Aloysius Wong (Tagalog), Miru Yogarajah (Tamil), and Michelle Zhang (Chinese).
+				A special thanks to the many people who contributed context, insight, and background on different linguistic communities: <a href="https://www.linkedin.com/in/francesca-allodi/" target="_blank">Francesca Allodi-Ross</a> (Spanish), <a href="https://www.linkedin.com/in/vidhya-elango/" target="_blank">Vidhya Elango</a> and <a href="https://www.jccc.on.ca/" target="_blank">the JCCC</a> (Japanese), <a href="https://www.linkedin.com/in/gabriela-pawlus-kasprzak-ph-d-523018212/" target="_blank">Gabriela Pawlus Kasprzak</a> (Polish), <a href="http://individual.utoronto.ca/ngn/" target="_blank">Naomi Nagy</a> and the <a href="https://ngn.artsci.utoronto.ca/HLVC/resources/descriptions.php" target="_blank">HLVC team</a> (Chinese, Japanese, Korean, Italian, Russian, Spanish, Tagalog), <a href="https://schoolofcities.utoronto.ca/people/serene-tan/" target="_blank">Serene Tan</a> (Chinese), <a href="https://aloysiuswong.ca/home" target="_blank">Aloysius Wong</a> (Tagalog), <a href="https://miruyogarajah.com/" target="_blank">Miru Yogarajah</a> (Tamil), and <a href="https://www.linkedin.com/in/michellez-yy/" target="_blank">Michelle Zhang</a> (Chinese).
 			</p>
 
 			<p>
