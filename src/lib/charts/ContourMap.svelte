@@ -12,12 +12,12 @@
 	const LABEL_CONFIG = {
 		large: {
 			municipalities: ["Ajax", "Vaughan", "Markham", "Mississauga", "Brampton", "North York", "Scarborough", "Etobicoke", "Toronto", "Pickering", "Richmond Hill"],
-			fontSize: 11,
+			fontSize: 12,
 			strokeWidth: 3
 		},
 		small: {
-			municipalities: ["Mississauga", "Brampton", "Vaughan", "Markham", "Toronto"],
-			fontSize: 14,
+			municipalities: ["Ajax", "Mississauga", "Brampton", "Vaughan", "Markham", "Toronto"],
+			fontSize: 28,
 			strokeWidth: 5
 		}
 	};

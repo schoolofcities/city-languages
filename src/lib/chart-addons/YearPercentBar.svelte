@@ -12,7 +12,6 @@
 	} = $props();
 	
 	// Derive colors from scheme: lightest for background, mid-dark for fill
-	// Falls back to purple-blue defaults if colors array is missing
 	let backgroundColor = "#d4ebf4";
 	let fillColor = "#1E3765";
 	
