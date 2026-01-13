@@ -86,7 +86,7 @@
 		// Add geographic boundaries
 		const boundaries = [
 			{ geo: outerTorontoBoundaries, style: {} },
-			{ geo: innerTorontoBoundaries, style: { strokeDasharray: "1,4" } }
+			{ geo: innerTorontoBoundaries, style: { strokeDasharray: "3,5" } }
 		];
 		boundaries.forEach(({ geo, style }) => {
 			if (geo) {
