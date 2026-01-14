@@ -13,7 +13,7 @@ export const SECTIONS_BY_LANGUAGE = {
 		{
 			year: 1971,
 			text: `<p>1971</p>
-				<p>Toronto's original English-speaking population is the legacy of its colonial ties to Britain. By 1971, English dominance in public life reflected a city born of British and Irish settler populations. As the suburbs of Etobicoke, North York, and Scarborough grew in the postwar period, many of these speakers moved into them, reflecting  historical wealth that newer non-English speaking immigrants lacked.</p>`
+				<p>Toronto's original English-speaking population is the legacy of its colonial ties to Britain. By 1971, English dominance in public life reflected a city born of British and Irish settler populations. As the suburbs of Etobicoke, North York, and Scarborough grew in the postwar period, many of these speakers moved into them, reflecting historical wealth that newer non-English speaking immigrants lacked.</p>`
 		},
 		{
 			year: 1971,
@@ -156,6 +156,7 @@ export const SECTIONS_BY_LANGUAGE = {
 		{
 			year: 1996,
 			image: "./linguistic-heritage/chinese/1996.png",
+			caption: "Credit: Toronto Star (1984)",
 			text: `<p>Toward the end of the century, both new immigrants and prior residents settled in other parts of the city – like Gerrard East, but more and more in the suburbs of Scarborough and Markham. Agincourt in Scarborough was a popular hub.</p>`
 		},
 		{
@@ -201,7 +202,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/greek/1971.jpeg",
 			caption: `Credit: <a href="https://www.heritagetoronto.org/explore/riding-the-waves/" target="_blank">Heritage Toronto</a>`,
-			text: `<p>Joining with Chilean exiles fleeing from a similar military dictatorship, musicians of both communities formed the group Compañeros to feature political music from their countries and raise awareness of issues at home. They're pictured above performing at Danforth Music Hall in 1978</p>`
+			text: `<p>Joining with Chilean exiles fleeing from a similar military dictatorship, musicians of both communities formed the group Compañeros to feature political music from their countries and raise awareness of issues at home. They're pictured above performing at Danforth Music Hall in 1978.</p>`
 		},
 		{
 			year: 1996,
@@ -212,7 +213,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/greek/1996.jpg",
 			caption: `Credit: <a href="https://en.wikipedia.org/wiki/Taste_of_the_Danforth#/media/File:Taste_of_the_Danforth.jpg" target="_blank">Wikipedia</a>`,
-			text: `<p>Beginning in 1993, the businesses in the neighborhood began hosting the annual "Taste of the Danforth" as a tribute to Greek food in the area. In recent years however, the festival has been on pause due to high operating costs</p>`
+			text: `<p>Beginning in 1993, the businesses in the neighborhood began hosting the annual "Taste of the Danforth" as a tribute to Greek food in the area. In recent years however, the festival has been on pause due to high operating costs.</p>`
 		},
 		{
 			year: 2021,
@@ -223,7 +224,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/greek/2021.png",
 			caption: `Credit: <a href="https://www.instagram.com/p/CpD1dQSO3Ve/" target="_blank">Greek Press</a>`,
-			text: `<p>Toronto's first Greek language newspaper was published in 1958, and closed operations the same year. Since then, other papers continue to carry the torch of the Greek language, including the Greek Press, pictured above</p>`
+			text: `<p>Toronto's first Greek-language newspaper was published in 1958, and closed operations the same year. Since then, other papers continue to carry the torch of the Greek language, including the Greek Press, pictured above.</p>`
 		},
 	],
 
@@ -238,7 +239,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/gujarati/1996.png",
 			caption: `Credit: <a href="https://www.toronto.com/things-to-do/food-and-drink/familys-gujarati-food-business-in-scarborough-a-success-after-70-years/article_d2e16d31-1c88-5d4b-b354-bada7eba943f.html" target="_blank">Toronto.com</a>`,
-			text: `<p>A community with a reputation for being entrepreneurial, Surati Sweets reestablished itself in Toronto in 1981, after being kicked out of Uganda with the broader community. Today, its products span several countries</p>`
+			text: `<p>A community with a reputation for being entrepreneurial, Surati Sweets reestablished itself in Toronto in 1981, after being kicked out of Uganda with the broader community. Today, its products span several countries.</p>`
 		},
 		{
 			year: 2021,
@@ -249,7 +250,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/gujarati/2021.jpg",
 			caption: `Credit: <a href="https://en.wikipedia.org/wiki/BAPS_Shri_Swaminarayan_Mandir_Toronto#" target="_blank">Wikipedia</a>`,
-			text: `<p>Founded 2007, BAPS Shri Swaminarayan Mandir Toronto is Canada's largest Hindu temple. Its specific brand of Hinduism is deeply rooted in Gujarat, and the temple provides Gujarati language and cultural classes</p>`
+			text: `<p>Founded 2007, BAPS Shri Swaminarayan Mandir Toronto is Canada's largest Hindu temple. Its specific brand of Hinduism is deeply rooted in Gujarat, and the temple provides Gujarati language and cultural classes.</p>`
 		},
 	],
 
@@ -277,13 +278,13 @@ export const SECTIONS_BY_LANGUAGE = {
 		{
 			year: 1996,
 			text: `<p>1996</p>
-				<p>Like other communities, Hungarians toward the end of the century were a community growing in professional credentials, moving to the suburbs, and above all assimilating. Its first language speakers were aging, and dispersion across different neighborhoods and a lack of new immigrants from Hungary meant it was on the decline.</p>`
+				<p>Like other communities, Hungarians toward the end of the century were a community growing in professional credentials, moving to the suburbs, and above all assimilating. Its first-language speakers were aging, and dispersion across different neighborhoods and a lack of new immigrants from Hungary meant it was on the decline.</p>`
 		},
 		{
 			year: 1996,
 			image: "./linguistic-heritage/hungarian/1996.jpg",
 			caption: `Credit: <a href="https://livingtorontojournal.com/2013/06/19/the-house-that-was-eaten-alive/" target="_blank">Living Toronto Journal</a>`,
-			text: `<p>Opening in 1966, the Hungarian House on St Clair West was the world's largest Hungarian cultural centre outside the home country. It was home to cultural and social events, theater, language instruction, and political meetings. Still, as the community assimilated, it wasn't to last: the association sold it in 2011, and it was demolished in 2012</p>`
+			text: `<p>Opening in 1966, the Hungarian House on St Clair West was the world's largest Hungarian cultural centre outside the home country. It was home to cultural and social events, theater, language instruction, and political meetings. Still, as the community assimilated, it wasn't to last: the association sold it in 2011, and it was demolished in 2012.</p>`
 		},
 		{
 			year: 2021,
@@ -294,7 +295,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/hungarian/2021.jpg",
 			caption: `Credit: <a href="http://www.foodjunkiechronicles.net/2011/10/country-style-hungarian-restaurant.html" target="_blank">Food Junkie Chronicles</a>`,
-			text: `<p>Once dotted with many Hungarian restaurants and businesses, Bloor and Spadina was once nicknamed the "Goulash Archipelago". Many closed in the 1980s and 1990s, with Country Style standing 62 years before closing in 2023</p>`
+			text: `<p>Once dotted with many Hungarian restaurants and businesses, Bloor and Spadina was once nicknamed the "Goulash Archipelago". Many closed in the 1980s and 1990s, with Country Style standing 62 years before closing in 2023.</p>`
 		},
 	],
 
@@ -309,7 +310,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/italian/1971.jpeg",
 			caption: `Credit: <a href="https://www.blogto.com/city/2020/10/history-ittle-italy-toronto/" target="_blank">BlogTO</a>`,
-			text: `<p>Many Italian immigrants ended up in Toronto's Little Italy – forming 30 to 40 percent of the neighbourhood at their peak. It was a hub of markets, films, newspapers, and all things Italian-language</p>`
+			text: `<p>Many Italian immigrants ended up in Toronto's Little Italy – forming 30 to 40 percent of the neighbourhood at their peak. It was a hub of markets, films, newspapers, and all things Italian language.</p>`
 		},
 		{
 			year: 1996,
@@ -320,7 +321,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/italian/1996.jpg",
 			caption: `Credit: <a href="https://odetothebeautifulgame.blogspot.com/2017/07/july-11-1982-day-we-became-canadian.html" target="_blank">The Power of Sport</a>`,
-			text: `<p>Over 250,000 crowded along Corso Italia in 1982 to celebrate Italy's victory in the World Cup. It showed a community that was increasingly established and proud</p>`
+			text: `<p>Over 250,000 crowded along Corso Italia in 1982 to celebrate Italy's victory in the World Cup. It showed a community that was increasingly established and proud.</p>`
 		},
 		{
 			year: 2021,
@@ -340,7 +341,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/japanese/1971.jpg",
 			caption: `Credit: Japanese Canadian Cultural Centre George Tsushima Collection, 2011.298.01.11.`,
-			text: `<p>The Toronto Japanese Language School promoted the preservation of language and culture through regular educational programs for children and adults. This photo is an early batch of students in 1960</p>`
+			text: `<p>The Toronto Japanese Language School promoted the preservation of language and culture through regular educational programs for children and adults. This photo is an early batch of students in 1960.</p>`
 		},
 		{
 			year: 1996,
@@ -351,7 +352,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/japanese/1996.jpg",
 			caption: `Credit: Japanese Canadian Cultural Centre Original Photographic Collection, 2001.2.2.1.`,
-			text: `<p>One of many such events, the Japanese Canadian Cultural Centre helped host annual bazaar's to bring the community together in Toronto</p>`
+			text: `<p>One of many such events, the Japanese Canadian Cultural Centre helped host annual bazaar's to bring the community together in Toronto.</p>`
 		},
 		{
 			year: 2021,
@@ -371,7 +372,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/korean/1996.png",
 			caption: `Credit: <a href="https://koreatownto.com/f/korea-town-and-the-history-of-koreans-in-toronto" target="_blank">Koreantown BIA</a>`,
-			text: `<p>While still a commercially Korean neighborhood, this photo from 1984 of Koreatown shows a time when Korean residents largely lived there as well</p>`
+			text: `<p>While still a commercially Korean neighborhood, this photo from 1984 of Koreatown shows a time when Korean residents largely lived there as well.</p>`
 		},
 		{
 			year: 2021,
@@ -391,7 +392,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/punjabi/1996.png",
 			caption: `Credit: <a href="https://findmypriest.ca/listing/the-ontario-khalsa-darbar-okd/" target="_blank">Find My Priest</a>`,
-			text: `<p>Sikh gurdwaras were much more than just places of worship: they brought together the community, to help find employment leads, housing, and welcome newcomers in the Punjabi language. The Ontario Khalsa Darbar is among the GTA's most prominent gurdwara</p>`
+			text: `<p>Sikh gurdwaras were much more than just places of worship: they brought together the community, to help find employment leads, housing, and welcome newcomers in the Punjabi language. The Ontario Khalsa Darbar is among the GTA's most prominent gurdwara.</p>`
 		},
 		{
 			year: 2021,
@@ -417,7 +418,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/polish/1971.png",
 			caption: `Credit: <a href="https://online.polcu.com/Personal/AboutUs/History/" target="_blank">St. Stanislaus - St. Casimir's Polish Parishes Credit Union</a>`,
-			text: `<p>Cardinal Karol Wojtyła visiting St. Casimir's Parish in 1976. He would go on to become the first Polish Pope – a matter of great celebration in Canada's deeply Catholic Polish community</p>`
+			text: `<p>Cardinal Karol Wojtyła visited St. Casimir’s Parish in 1976. He would go on to become the first Polish Pope – a matter of great celebration in Canada’s deeply Catholic Polish community.</p>`
 		},
 		{
 			year: 1996,
@@ -433,7 +434,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/polish/2021.png",
 			caption: `Credit: <a href="https://polishfestival.ca/#instagramfeed" target="_blank">Roncesvalles Polish Festival</a>`,
-			text: `<p>Toronto's annual Roncesvalles Polish Festival remains a hub for culture, music, language, and food</p>`
+			text: `<p>Toronto's annual Roncesvalles Polish Festival remains a hub for culture, music, language, and food.</p>`
 		},
 	],
 
@@ -448,7 +449,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/portuguese/1971.jpg",
 			caption: `Credit: <a href="https://izi.travel/en/0cc2-portuguese-toronto-early-decades/en#/browse/2af36e64-6e4d-4c09-8ac5-61eff8bd3606/en__0cc257b0-7984-4ba7-b9bf-4b9eec52fa65" target="_blank">izi Travel</a>`,
-			text: `<p>Founded in Toronto, the Associação Democrática Portuguesa (Portuguese Canadian Democratic Association) united anti-fascist and pro-democracy elements in the Canadian Portuguese community, and was an outspoken diaspora voice against the dictatorship that had led to the emigration of so many</p>`
+			text: `<p>Founded in Toronto, the Associação Democrática Portuguesa (Portuguese Canadian Democratic Association) united anti-fascist and pro-democracy elements in the Canadian Portuguese community, and was an outspoken diaspora voice against the dictatorship that had led to the emigration of so many.</p>`
 		},
 		{
 			year: 1996,
@@ -459,13 +460,13 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/portuguese/1996-a.jpg",
 			caption: `Credit: <a href="https://izi.travel/en/0cc2-portuguese-toronto-early-decades/en#e0114e2b-0310-4c70-8fef-ed7d7540f980__0cc257b0-7984-4ba7-b9bf-4b9eec52fa65" target="_blank">izi Travel</a>`,
-			text: `<p>While Portuguese men had a big role in Toronto's postwar construction boom, Portuguese women had a large role in cleaning buildings across the city. They were routinely underpaid, but fought back by creating the Portuguese-English publication Cleaners' Action Newsletter, and eventually winning a key strike in 1984</p>`
+			text: `<p>While Portuguese men had a big role in Toronto's postwar construction boom, Portuguese women had a large role in cleaning buildings across the city. They were routinely underpaid, but fought back by creating the Portuguese-English publication Cleaners' Action Newsletter, and eventually winning a key strike in 1984.</p>`
 		},
 		{
 			year: 1996,
 			image: "./linguistic-heritage/portuguese/1996-b.jpg",
 			caption: `Credit: <a href="https://izi.travel/en/0cc2-portuguese-toronto-early-decades/en#d61bbd4d-6b10-4ab2-b4a6-e1002b97b827__0cc257b0-7984-4ba7-b9bf-4b9eec52fa65" target="_blank">izi Travel</a>`,
-			text: `<p>Despite a modest pull toward the suburbs, Toronto's West End remained the hub of its Portuguese community. Year after year, Trinity Bellwoods was home to annual Portugal days celebrations, including this one in 1993</p>`
+			text: `<p>Despite a modest pull toward the suburbs, Toronto's West End remained the hub of its Portuguese community. Year after year, Trinity Bellwoods was home to annual Portugal days celebrations, including this one in 1993.</p>`
 		},
 		{
 			year: 2021,
@@ -476,7 +477,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/portuguese/2021.jpg",
 			caption: `Credit: <a href="https://izi.travel/en/0cc2-portuguese-toronto-early-decades/en#2411ec80-eb9b-4a32-9c32-f528eb5fb7c0__0cc257b0-7984-4ba7-b9bf-4b9eec52fa65" target="_blank">izi Travel</a>`,
-			text: `<p>Cultural institutions still stand strong: here, Azorean Romeiros (pilgrims) gather outside St. Agnes Church on Good Friday in 2016</p>`
+			text: `<p>Cultural institutions still stand strong: here, Azorean Romeiros (pilgrims) gather outside St. Agnes Church on Good Friday in 2016.</p>`
 		},
 	],
 
@@ -516,7 +517,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/spanish/1971.png",
 			caption: `Credit: <a href="https://www.heritagetoronto.org/explore/riding-the-waves/" target="_blank">Heritage Toronto</a>`,
-			text: `<p>Founded in 1983, the Latin American Women's Collective (LAWC) was amongst the first Latin American feminist groups in the city. It provided space for Spanish-speaking Latin Americans to advocate for women's issues in Canada and in their home countries, once hosting Nicaraguan journalist and feminist Sofia Montenegro</p>`
+			text: `<p>Founded in 1983, the Latin American Women's Collective (LAWC) was amongst the first Latin American feminist groups in the city. It provided space for Spanish-speaking Latin Americans to advocate for women's issues in Canada and in their home countries, once hosting Nicaraguan journalist and feminist Sofia Montenegro.</p>`
 		},
 		{
 			year: 1996,
@@ -527,7 +528,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/spanish/2021.jpeg",
 			caption: `Credit: <a href="https://www.heritagetoronto.org/explore/riding-the-waves/" target="_blank">Heritage Toronto</a>`,
-			text: `<p>Founded in 1991 and named after the Salvadoran Archbishop Oscar Romero, Bloor West's Romero House has provided temporary housing, and community and language services for refugees coming to Toronto – from Latin America and beyond. Pictured above is its annual community block party in 2016</p>`
+			text: `<p>Founded in 1991 and named after the Salvadoran Archbishop Oscar Romero, Bloor West's Romero House has provided temporary housing, and community and language services for refugees coming to Toronto – from Latin America and beyond. Pictured above is its annual community block party in 2016.</p>`
 		},
 		{
 			year: 2021,
@@ -547,7 +548,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1996,
 			image: "./linguistic-heritage/tamil/1996.jpg",
 			caption: `Credit: <a href="https://www.heritagetoronto.org/explore/tamil-cooks-toronto-kitchens/allens-on-danforth/" target="_blank">Heritage Toronto</a>`,
-			text: `<p>Many Tamil migrants took up work as chefs in the backrooms of kitchens, including Chef Ponniah Vijeyaratnam, pictured in the late 1980s to 1990s at Allen's on the Danforth</p>`
+			text: `<p>Many Tamil migrants took up work as chefs in the backrooms of kitchens, including Chef Ponniah Vijeyaratnam, pictured in the late 1980s to 1990s at Allen's on the Danforth.</p>`
 		},
 		{
 			year: 2021,
@@ -572,7 +573,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/tagalog/2021.jpg",
 			caption: `Credit: <a href="https://www.blogto.com/city/2018/05/little-manila-neighbourhood-filipino-food-toronto/" target="_blank">BlogTO</a>`,
-			text: `<p>A growing cluster of Filipinos in North York led to the emergence of Little Manila – an ethnic enclave full of Filipino businesses and restaurants, and a natural juncture for Tagalog speakers</p>`
+			text: `<p>A growing cluster of Filipinos in North York led to the emergence of Little Manila – an ethnic enclave full of Filipino businesses and restaurants, and a natural juncture for Tagalog speakers.</p>`
 		},
 	],
 
@@ -587,7 +588,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/ukrainian/1971.png",
 			caption: `Credit: <a href="https://www.blogto.com/city/2023/10/300-bathurst-bombing-shook-torontos-ukrainian-community/" target="_blank">BlogTO</a>`,
-			text: `<p>The Ukrainian Labour Temple was one such example community organization. Running from the late 1920s to the late 1980s near Bathurst and Dundas, it was a hub for left-wing Ukrainians, and had provided a language school for children – despite being bombed in 1950</p>`
+			text: `<p>The Ukrainian Labour Temple was one such example community organization. Running from the late 1920s to the late 1980s near Bathurst and Dundas, it was a hub for left-wing Ukrainians, and had provided a language school for children – despite being bombed in 1950.</p>`
 		},
 		{
 			year: 1996,
@@ -603,7 +604,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 2021,
 			image: "./linguistic-heritage/ukrainian/2021.png",
 			caption: `Credit: <a href="https://www.stvolodymyr.org/news/librarian" target="_blank">St. Volodymyr Institute</a>`,
-			text: `<p>Institutions like St. Volodymyr Institute keep Ukrainian language heritage alive today – including through a library which contains Ukrainian literature, art, and music</p>`
+			text: `<p>Institutions like St. Volodymyr Institute keep Ukrainian-language heritage alive today – including through a library which contains Ukrainian literature, art, and music.</p>`
 		},
 	],
 
@@ -638,7 +639,7 @@ export const SECTIONS_BY_LANGUAGE = {
 			year: 1971,
 			image: "./linguistic-heritage/yiddish/1971.jpg",
 			caption: `Credit: <a href="https://localfilmculturestoronto.wordpress.com/when-chinatown-was-yiddish-the-old-standard-theatre/#_edn5" target="_blank">Local Film Cultures - Toronto</a>`,
-			text: `<p>The textile industry employed many Jewish immigrants in the first half of the 1900s. Its concentration around Spadina Avenue led to a growth of Jewish cultural life – including Standard Theatre, a Yiddish language theater during the 1920s and 1930s near Spadina and Dundas</p>`
+			text: `<p>The textile industry employed many Jewish immigrants in the first half of the 1900s. Its concentration around Spadina Avenue led to a growth of Jewish cultural life – including Standard Theatre, a Yiddish-language theater during the 1920s and 1930s near Spadina and Dundas.</p>`
 		},
 		{
 			year: 1996,

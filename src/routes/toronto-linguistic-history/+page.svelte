@@ -5,6 +5,7 @@
 	import AuthorDate from '$lib/header-footer/AuthorDate.svelte';
 	import Footer from '$lib/header-footer/Footer.svelte';
 	import ScrollyMaps from "$lib/scrolly/ScrollyMaps.svelte";
+	import Tooltip from '$lib/Tooltip.svelte';
 	import { LANGUAGE_OPTIONS, LANGUAGE_THRESHOLDS, SOFC_COLOURS, MAP_DIMENSIONS } from "$lib/constants.js";
 	import { getSectionsForLanguage } from "$lib/sectionsConfig.js";
   
@@ -94,7 +95,7 @@
 		/>
 
 		<p>
-			In today's Toronto and surrounding municipalities, it is more common for someone's mother tongue to be a language other than English. A long time hub for immigration to Canada, the region is one of the world's most multicultural. And, as a result, has long been home to dozens of languages from around the globe.
+			In today's Toronto and surrounding municipalities, it is more common for someone's mother tongue to be a language other than English. A longtime hub for immigration to Canada, the region is one of the world's most multicultural and, as a result, has long been home to dozens of languages from around the globe.
 		</p>
 
 		<p>
@@ -106,7 +107,7 @@
 		</p>
 
 		<p>
-			Below, we map first-language speakers for many different languages across the region in 1971, 1996, and 2021. For each language, we share a brief account of how these communities formed and changed over time, alongside selected images from different periods. Choose a language below and scroll to explore its story.
+			Below, we map <Tooltip content="'First Language' (Mother Tongue) refers to the language learned at home in childhood and still understood, different from 'Knowledge of' which indicates ability to conduct a conversation in a language.">first-language speakers</Tooltip> for many different languages across the region in 1971, 1996, and 2021. For each language, we share a brief account of how these communities formed and changed over time, alongside selected images from different periods. Choose a language below and scroll to explore its story.
 		</p>
 	</div>
 

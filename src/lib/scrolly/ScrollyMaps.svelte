@@ -220,12 +220,13 @@
 	}
 
 	.image-caption :global(a) {
-		color: #0066cc;
-		text-decoration: none;
+		color: #666;
+		text-decoration: underline;
+		font-family: inherit;
 	}
 
 	.image-caption :global(a:hover) {
-		text-decoration: underline;
+		opacity: 0.7;
 	}
 
 	@media (min-width: 640px) {
